@@ -1,7 +1,7 @@
 
 ![Taskify README Banner](https://github.com/user-attachments/assets/a64fa617-2207-4823-b882-d06757383a54)
 
-Taskify is an privacy-focused project-planning tool that works entirely locally on your device. It provides basic functionality such as sorting and filtering all tasks as well as creating custom fields.   
+Taskify is a privacy-focused project-planning tool that works entirely locally on your device. It provides basic functionality such as sorting and filtering all tasks as well as creating custom fields.   
 
 ## ⛏️ Usage
 
