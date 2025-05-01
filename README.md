@@ -5,7 +5,7 @@ Taskify is a privacy-focused project-planning tool that works entirely locally o
 
 ## ⛏️ Usage
 
-Taskify can be visited on TODO: Paste link. After opening the website for the first time, it will install a service worker that caches all required resources for offline-use. Furthermore, you're now able to "install" the website as a progressive-web-app and open it like you're used from normal apps.
+Taskify can be visited on https://taskify-vert-gamma.vercel.app. After opening the website for the first time, it will install a service worker that caches all required resources for offline-use. Furthermore, you're now able to "install" the website as a progressive-web-app and open it like you're used from normal apps.
 
 To start using Taskify, simply create a new project by clicking the plus-icon on the left and filling out the form. You can choose from different icons, enter a name and a description. Obviously, this can be modified later. 
 
