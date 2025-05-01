@@ -44,7 +44,7 @@
     return filterTasksBySearchQuery(
       searchQuery,
       logicalFilter,
-      currentProject.customFields
+      currentProject.customFields,
     );
   });
 

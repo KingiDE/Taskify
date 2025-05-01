@@ -14,10 +14,10 @@
   let currentTab = $state<"hotkeys" | "search" | "export">("hotkeys");
 </script>
 
-<div class="flex flex-col gap-4">
+<div class="grid content-start gap-4 max-h-[700px] h-[calc(100dvh_-_48px)]">
   <h1 class="font-poppins font-bold text-2xl">Settings</h1>
   <div
-    class="grid min-[800px]:grid-cols-[250px_auto] gap-8 h-[502px] content-start"
+    class="grid min-[800px]:grid-cols-[250px_auto] gap-8 content-start overflow-y-hidden"
   >
     <nav class="grid gap-2 content-start">
       <NavbarIcon

@@ -21,7 +21,7 @@ The popup value is set to null when the Escape key is pressed or the 'X'-button 
 {#if popup != null}
   <div
     transition:fade={{ duration: 100 }}
-    class={`w-[calc(100vw_-_32px)] ${maxWidth} grid justify-items-center z-10 shadow-lg bg-gray-800 fixed left-1/2 top-1/2 -translate-1/2 outline-1 outline-gray-500 rounded-md p-4 overflow-y-scroll`}
+    class={`w-[calc(100vw_-_32px)] ${maxWidth} max-h-[calc(100%_-_16px)] grid justify-items-center z-10 shadow-lg bg-gray-800 fixed left-1/2 top-1/2 -translate-1/2 outline-1 outline-gray-500 rounded-md p-4 overflow-y-scroll`}
     role="button"
   >
     <Button

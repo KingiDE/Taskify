@@ -24,12 +24,12 @@
   let currentTab = $state<PossibleEditProjectPopupTabs>("appearence");
 </script>
 
-<div class="h-[638px] grid content-start w-full">
+<div class="max-h-[700px] h-[calc(100dvh_-_48px)] grid content-start w-full">
   <h1 class="font-poppins font-bold text-2xl justify-self-start">
     Edit project
   </h1>
   <div
-    class="mt-4 grid min-[720px]:grid-cols-[250px_auto] gap-8 min-h-[502px] content-start"
+    class="mt-4 grid min-[720px]:grid-cols-[250px_auto] gap-8 h-full content-start overflow-y-hidden"
   >
     <nav class="grid gap-2 content-start">
       <NavbarIcon

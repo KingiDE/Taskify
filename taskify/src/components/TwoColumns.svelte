@@ -33,7 +33,7 @@
 </script>
 
 <!-- The root component that contains the sidebar, the overview and renders all popups.  -->
-<div class="flex gap-2 p-2 pr-1.5 h-[100vh]" role="button">
+<div class="flex gap-2 p-2 pr-1.5 h-[100dvh]" role="button">
   <Sidebar
     isSidebarExpanded={isSidebarExpanded.value}
     toggleIsSidebarExpanded={() => {
@@ -44,7 +44,7 @@
     bind:currentProject={currentProject.value}
   />
   <div
-    class="bg-gray-800 w-full overflow-x-hidden rounded-md p-4 max-h-[100vh] overflow-y-scroll"
+    class="bg-gray-800 w-full overflow-x-hidden rounded-md p-4 max-h-[100dvh] overflow-y-scroll"
   >
     <Overview
       currentProject={currentProject.value}

@@ -66,7 +66,9 @@
   }
 </script>
 
-<div class="max-w-[575px] h-[638px] flex flex-col">
+<div
+  class="max-w-[575px] grid content-start max-h-[700px] h-[calc(100dvh_-_48px)]"
+>
   <h1 class="font-poppins font-bold text-2xl">Create new project</h1>
   <div class="mt-2 overflow-y-scroll pr-1.5">
     <FormSection bind:project={createProjectInput} />
@@ -76,7 +78,7 @@
   <Button
     meaning="positive"
     onClick={createProject}
-    extraCSS="mt-auto"
+    extraCSS="mt-4 self-end"
     disabled={invalidInputs}
   >
     {#snippet text()}

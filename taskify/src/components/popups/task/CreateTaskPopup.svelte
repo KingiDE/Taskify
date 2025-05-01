@@ -38,10 +38,10 @@
   const invalidInputs = $derived.by(getInvalidInputs);
 </script>
 
-<div class="w-full flex flex-col gap-4 h-[638px]">
+<div class="w-full flex flex-col gap-4 max-h-[700px] h-[calc(100dvh_-_48px)]">
   <h1 class="font-poppins font-bold text-2xl">Create task</h1>
   <div
-    class="grid min-[700px]:grid-cols-[250px_auto] gap-8 mb-auto min-h-[502px]"
+    class="grid min-[700px]:grid-cols-[250px_auto] gap-8 mb-auto overflow-y-hidden"
   >
     <nav class="grid gap-2 content-start">
       <NavbarIcon

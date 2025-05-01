@@ -30,9 +30,9 @@
   let currentTab = $state<PossibleEditTaskPopupTabs>("appearence");
 </script>
 
-<div class="flex flex-col gap-4 w-full h-[638px]">
+<div class="flex flex-col gap-4 w-full max-h-[700px] h-[calc(100dvh_-_48px)]">
   <h1 class="font-poppins font-bold text-2xl">Edit task</h1>
-  <div class="grid min-[700px]:grid-cols-[250px_auto] gap-8 min-h-[502px]">
+  <div class="grid min-[700px]:grid-cols-[250px_auto] gap-8 overflow-y-hidden">
     <nav class="grid gap-2 content-start">
       <NavbarIcon
         buttonText="Appearence"
