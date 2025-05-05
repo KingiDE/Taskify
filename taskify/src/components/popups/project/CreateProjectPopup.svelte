@@ -67,7 +67,7 @@ function createProject() {
 </script>
 
 <div
-  class="max-w-[575px] grid content-start max-h-[700px] h-[calc(100dvh_-_48px)]"
+  class="max-w-[575px] flex flex-col max-h-[700px] h-[calc(100dvh_-_48px)]"
 >
   <h1 class="font-poppins font-bold text-2xl">Create new project</h1>
   <div class="mt-2 overflow-y-scroll pr-1.5">
@@ -75,14 +75,16 @@ function createProject() {
     <BackgroundColorSection bind:project={createProjectInput} />
     <IconSection bind:project={createProjectInput} />
   </div>
-  <Button
+  <div class="mt-auto grid">
+		<Button
     meaning="positive"
+		extraCSS="mt-4"
     onClick={createProject}
-    extraCSS="mt-4 self-end"
     disabled={invalidInputs}
   >
     {#snippet text()}
       Create
     {/snippet}
   </Button>
+	</div>
 </div>
