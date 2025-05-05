@@ -1,15 +1,15 @@
 <!-- The heading in the sideabar that contains the burger-icon and "All projects" text. -->
 
 <script lang="ts">
-  import Button from "@ui/Button.svelte";
-  import Icon from "@ui/Icon.svelte";
-  let {
-    isSidebarExpanded,
-    toggleIsSidebarExpanded,
-  }: {
-    isSidebarExpanded: boolean;
-    toggleIsSidebarExpanded: () => void;
-  } = $props();
+import Button from "@ui/Button.svelte";
+import Icon from "@ui/Icon.svelte";
+const {
+	isSidebarExpanded,
+	toggleIsSidebarExpanded,
+}: {
+	isSidebarExpanded: boolean;
+	toggleIsSidebarExpanded: () => void;
+} = $props();
 </script>
 
 <div

@@ -1,27 +1,29 @@
 <!-- This popup shows when you want to edit a project. -->
 
 <script lang="ts">
-  import type {
-    LocalProject,
-    PossibleEditProjectPopupTabs,
-    PossiblePopups,
-  } from "@components/types";
-  import NavbarIcon from "../../NavbarIcon.svelte";
-  import DestructiveTab from "./tabs/DestructiveTab.svelte";
-  import EditAppearenceTab from "./tabs/EditAppearenceTab.svelte";
-  import FieldsTab from "./tabs/fieldsTab/FieldsTab.svelte";
+import type {
+	LocalProject,
+	PossibleEditProjectPopupTabs,
+	PossiblePopups,
+} from "@components/types";
+import NavbarIcon from "../../NavbarIcon.svelte";
+import DestructiveTab from "./tabs/DestructiveTab.svelte";
+import EditAppearenceTab from "./tabs/EditAppearenceTab.svelte";
+import FieldsTab from "./tabs/fieldsTab/FieldsTab.svelte";
 
-  let {
-    currentProject = $bindable(),
-    popup = $bindable(),
-    deleteCurrentSelectedProject,
-  }: {
-    currentProject: LocalProject;
-    popup: PossiblePopups;
-    deleteCurrentSelectedProject: () => void;
-  } = $props();
+// biome-ignore lint/style/useConst: These are props and work like this
+let {
+	currentProject = $bindable(),
+	popup = $bindable(),
+	deleteCurrentSelectedProject,
+}: {
+	currentProject: LocalProject;
+	popup: PossiblePopups;
+	deleteCurrentSelectedProject: () => void;
+} = $props();
 
-  let currentTab = $state<PossibleEditProjectPopupTabs>("appearence");
+// biome-ignore lint/style/useConst: <explanation>
+let currentTab = $state<PossibleEditProjectPopupTabs>("appearence");
 </script>
 
 <div class="max-h-[700px] h-[calc(100dvh_-_48px)] grid content-start w-full">

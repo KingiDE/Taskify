@@ -1,16 +1,16 @@
 import type { SearchFilters } from "../searchHandler";
 
 export function doRelationsFilterKeyProcedure(
-  filterValue: string,
-  inverted: boolean,
-  operator: "lower_than" | "greater_than" | "exact",
-  searchFilters: SearchFilters,
+	filterValue: string,
+	inverted: boolean,
+	operator: "lower_than" | "greater_than" | "exact",
+	searchFilters: SearchFilters,
 ) {
-  const possibleNumber = Number(filterValue);
+	const possibleNumber = Number(filterValue);
 
-  if (!isNaN(possibleNumber)) {
-    searchFilters.relations.inverted = inverted;
-    searchFilters.relations.value = possibleNumber;
-    searchFilters.relations.mode = operator;
-  }
+	if (!Number.isNaN(possibleNumber)) {
+		searchFilters.relations.inverted = inverted;
+		searchFilters.relations.value = possibleNumber;
+		searchFilters.relations.mode = operator;
+	}
 }

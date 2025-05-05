@@ -1,22 +1,22 @@
 <!-- This component wraps the logic of a button to select the icon of a project. -->
 
 <script lang="ts">
-  import type { LocalProject } from "@components/types";
-  import Button from "@ui/Button.svelte";
-  import Icon from "@ui/Icon.svelte";
-  import type { icons } from "@ui/icons";
+import type { LocalProject } from "@components/types";
+import Button from "@ui/Button.svelte";
+import Icon from "@ui/Icon.svelte";
+import type { icons } from "@ui/icons";
 
-  let {
-    field,
-    project = $bindable(),
-  }: {
-    field: keyof typeof icons;
-    project: Omit<LocalProject, "id">;
-  } = $props();
+const {
+	field,
+	project = $bindable(),
+}: {
+	field: keyof typeof icons;
+	project: Omit<LocalProject, "id">;
+} = $props();
 
-  function selectThisIcon() {
-    project.icon = field;
-  }
+function selectThisIcon() {
+	project.icon = field;
+}
 </script>
 
 <Button

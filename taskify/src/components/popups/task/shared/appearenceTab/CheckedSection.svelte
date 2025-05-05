@@ -1,14 +1,14 @@
 <!-- This component lets you edit the checked-status of a task. -->
 
 <script lang="ts">
-  import type { LocalProjectTask } from "@components/types";
-  import Checkbox from "@ui/Checkbox.svelte";
+import type { LocalProjectTask } from "@components/types";
+import Checkbox from "@ui/Checkbox.svelte";
 
-  let {
-    task = $bindable(),
-  }: {
-    task: Omit<LocalProjectTask, "id">;
-  } = $props();
+const {
+	task = $bindable(),
+}: {
+	task: Omit<LocalProjectTask, "id">;
+} = $props();
 </script>
 
 <Checkbox

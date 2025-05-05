@@ -1,35 +1,36 @@
 <script lang="ts">
-  import Overview from "./overview/Overview.svelte";
-  import Popup from "./Popup.svelte";
-  import Sidebar from "./sidebar/Sidebar.svelte";
-  import CreateProjectPopup from "./popups/project/CreateProjectPopup.svelte";
-  import EditProjectPopup from "./popups/project/editProjectPopup/EditProjectPopup.svelte";
-  import CreateTaskPopup from "./popups/task/CreateTaskPopup.svelte";
-  import EditTaskPopup from "./popups/task/EditTaskPopup.svelte";
-  import DeleteTaskPopup from "./popups/task/DeleteTaskPopup.svelte";
-  import SettingsPopup from "./popups/settingsTab/SettingsPopup.svelte";
+import Popup from "./Popup.svelte";
+import Overview from "./overview/Overview.svelte";
+import CreateProjectPopup from "./popups/project/CreateProjectPopup.svelte";
+import EditProjectPopup from "./popups/project/editProjectPopup/EditProjectPopup.svelte";
+import SettingsPopup from "./popups/settingsTab/SettingsPopup.svelte";
+import CreateTaskPopup from "./popups/task/CreateTaskPopup.svelte";
+import DeleteTaskPopup from "./popups/task/DeleteTaskPopup.svelte";
+import EditTaskPopup from "./popups/task/EditTaskPopup.svelte";
+import Sidebar from "./sidebar/Sidebar.svelte";
 
-  import {
-    mount,
-    update,
-    currentProject,
-    projects,
-    currentTask,
-    addNewProject,
-    deleteCurrentSelectedProject,
-    addTaskToProject,
-    deleteTaskWithCurrentId,
-    switchToTask,
-    popup,
-  } from "@hooks/twoColumns/useProject.svelte.ts";
-  import {
-    isSidebarExpanded,
-    toggleIsSidebarExpanded,
-  } from "@hooks/twoColumns/useSidebar.svelte.ts";
-  import { addTaskInput } from "@hooks/useCreateTaskPopup.svelte";
+import {
+	addNewProject,
+	addTaskToProject,
+	currentProject,
+	currentTask,
+	deleteCurrentSelectedProject,
+	deleteTaskWithCurrentId,
+	mount,
+	popup,
+	projects,
+	switchToTask,
+	update,
+} from "@hooks/twoColumns/useProject.svelte.ts";
+import {
+	isSidebarExpanded,
+	toggleIsSidebarExpanded,
+} from "@hooks/twoColumns/useSidebar.svelte.ts";
+import { addTaskInput } from "@hooks/useCreateTaskPopup.svelte";
+import type { PossiblePopups } from "./types";
 
-  mount();
-  update();
+mount();
+update();
 </script>
 
 <!-- The root component that contains the sidebar, the overview and renders all popups.  -->

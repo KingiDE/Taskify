@@ -1,18 +1,19 @@
 <!-- This subpopup is shown when you want to delete a existing relation. -->
 
 <script lang="ts">
-  import Popup from "../../../../Popup.svelte";
-  import type { LocalProjectTask } from "@components/types";
-  import Button from "@ui/Button.svelte";
-  import Icon from "@ui/Icon.svelte";
+import type { LocalProjectTask } from "@components/types";
+import Button from "@ui/Button.svelte";
+import Icon from "@ui/Icon.svelte";
+import Popup from "../../../../Popup.svelte";
 
-  let {
-    task = $bindable(),
-    showDeletePopup = $bindable(),
-  }: {
-    task: Omit<LocalProjectTask, "id">;
-    showDeletePopup: string | null;
-  } = $props();
+// biome-ignore lint/style/useConst: These are props and work like this
+let {
+	task = $bindable(),
+	showDeletePopup = $bindable(),
+}: {
+	task: Omit<LocalProjectTask, "id">;
+	showDeletePopup: string | null;
+} = $props();
 </script>
 
 <Popup bind:popup={showDeletePopup} maxWidth="max-w-[450px]">

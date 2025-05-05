@@ -1,21 +1,21 @@
 <!-- The button that is displayed in the sidebar to add new projects when clicked. -->
 
 <script lang="ts">
-  import Button from "@ui/Button.svelte";
-  import type { PossiblePopups } from "@components/types";
-  import Icon from "@ui/Icon.svelte";
+import type { PossiblePopups } from "@components/types";
+import Button from "@ui/Button.svelte";
+import Icon from "@ui/Icon.svelte";
 
-  let {
-    isSidebarExpanded = $bindable(),
-    popup = $bindable(),
-  }: {
-    isSidebarExpanded: Boolean;
-    popup: PossiblePopups;
-  } = $props();
+let {
+	isSidebarExpanded = $bindable(),
+	popup = $bindable(),
+}: {
+	isSidebarExpanded: boolean;
+	popup: PossiblePopups;
+} = $props();
 
-  function showAddProjectPopup() {
-    popup = "add_project";
-  }
+function showAddProjectPopup() {
+	popup = "add_project";
+}
 </script>
 
 <Button meaning="neutral" onClick={showAddProjectPopup} extraCSS="mt-8 h-10">

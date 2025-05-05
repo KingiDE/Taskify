@@ -1,60 +1,60 @@
 <!-- This component is the template for rendering the "select"-variant custom field of a task. -->
 
 <script lang="ts">
-  import type { LocalProject, LocalProjectTask } from "@components/types";
-  import Button from "@ui/Button.svelte";
-  import { fade } from "svelte/transition";
+import type { LocalProject, LocalProjectTask } from "@components/types";
+import Button from "@ui/Button.svelte";
+import { fade } from "svelte/transition";
 
-  let {
-    customField,
-    task = $bindable(),
-    currentProject,
-  }: {
-    customField: {
-      id: string;
-      name: string;
-      variant: "select";
-      options: Array<string>;
-    };
-    task: Omit<LocalProjectTask, "id">;
-    currentProject: LocalProject;
-  } = $props();
+const {
+	customField,
+	task = $bindable(),
+	currentProject,
+}: {
+	customField: {
+		id: string;
+		name: string;
+		variant: "select";
+		options: Array<string>;
+	};
+	task: Omit<LocalProjectTask, "id">;
+	currentProject: LocalProject;
+} = $props();
 
-  // The possible current value that is stored in the task for this custom field
-  let currentValue = $derived.by(() => {
-    return task.customFields.find((element) => element.id === customField.id);
-  });
+// The possible current value that is stored in the task for this custom field
+const currentValue = $derived.by(() => {
+	return task.customFields.find((element) => element.id === customField.id);
+});
 
-  $effect(() => {
-    const possibleExistingOptions = currentProject.customFields.find(
-      (element) => element.id === customField.id,
-    );
+$effect(() => {
+	const possibleExistingOptions = currentProject.customFields.find(
+		(element) => element.id === customField.id,
+	);
 
-    // If the current value is one that isn't possible, it will get set to null
-    if (
-      currentValue &&
-      currentValue.value &&
-      possibleExistingOptions &&
-      possibleExistingOptions.options &&
-      !possibleExistingOptions.options.includes(currentValue.value.toString())
-    ) {
-      currentValue.value = null;
-    }
-  });
+	// If the current value is one that isn't possible, it will get set to null
+	if (
+		currentValue?.value &&
+		possibleExistingOptions &&
+		possibleExistingOptions.options &&
+		!possibleExistingOptions.options.includes(currentValue.value.toString())
+	) {
+		currentValue.value = null;
+	}
+});
 
-  let showOptions = $state(false);
+// biome-ignore lint/style/useConst: <explanation>
+let showOptions = $state(false);
 
-  function changeSelectedOptionTo(option: string) {
-    if (currentValue === undefined) {
-      task.customFields.push({
-        id: customField.id,
-        variant: "select",
-        value: option,
-      });
-    } else {
-      currentValue.value = option;
-    }
-  }
+function changeSelectedOptionTo(option: string) {
+	if (currentValue === undefined) {
+		task.customFields.push({
+			id: customField.id,
+			variant: "select",
+			value: option,
+		});
+	} else {
+		currentValue.value = option;
+	}
+}
 </script>
 
 {customField.name}:

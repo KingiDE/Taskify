@@ -1,31 +1,31 @@
 <!-- This component lets you enable or disable the default-fields of a project. -->
 
 <script lang="ts">
-  import type {
-    LocalProject,
-    LocalProjectEnabledFields,
-  } from "@components/types";
-  import Checkbox from "@ui/Checkbox.svelte";
+import type {
+	LocalProject,
+	LocalProjectEnabledFields,
+} from "@components/types";
+import Checkbox from "@ui/Checkbox.svelte";
 
-  let {
-    project = $bindable(),
-  }: {
-    project: LocalProject;
-  } = $props();
+const {
+	project = $bindable(),
+}: {
+	project: LocalProject;
+} = $props();
 
-  function IsFieldEnabled(field: LocalProjectEnabledFields) {
-    return project.enabledFields.includes(field);
-  }
+function IsFieldEnabled(field: LocalProjectEnabledFields) {
+	return project.enabledFields.includes(field);
+}
 
-  function toggleIsFieldEnabled(field: LocalProjectEnabledFields) {
-    if (IsFieldEnabled(field)) {
-      project.enabledFields = project.enabledFields.filter(
-        (element) => element !== field
-      );
-    } else {
-      project.enabledFields.push(field);
-    }
-  }
+function toggleIsFieldEnabled(field: LocalProjectEnabledFields) {
+	if (IsFieldEnabled(field)) {
+		project.enabledFields = project.enabledFields.filter(
+			(element) => element !== field,
+		);
+	} else {
+		project.enabledFields.push(field);
+	}
+}
 </script>
 
 <div>Enable/Disable standard fields:</div>

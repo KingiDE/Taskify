@@ -1,14 +1,14 @@
 {
-  "extends": "astro/tsconfigs/strict",
-  "include": [".astro/types.d.ts", "**/*"],
-  "exclude": ["dist"],
-  "compilerOptions": {
-    "types": ["vite-plugin-pwa/client"],
-    "baseUrl": ".",
-    "paths": {
-      "@ui/*": ["src/components/ui/*"],
-      "@components/*": ["src/components/*"],
-      "@hooks/*": ["src/hooks/*"]
-    }
-  }
+	"extends": "astro/tsconfigs/strict",
+	"include": [".astro/types.d.ts", "**/*"],
+	"exclude": ["dist"],
+	"compilerOptions": {
+		"types": ["vite-plugin-pwa/client"],
+		"baseUrl": ".",
+		"paths": {
+			"@ui/*": ["src/components/ui/*"],
+			"@components/*": ["src/components/*"],
+			"@hooks/*": ["src/hooks/*"]
+		}
+	}
 }

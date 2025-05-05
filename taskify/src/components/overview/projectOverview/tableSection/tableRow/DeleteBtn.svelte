@@ -1,14 +1,14 @@
 <!-- This component lets you open the delete-task-popup directly in the table. -->
 
 <script lang="ts">
-  import Button from "@ui/Button.svelte";
-  import Icon from "@ui/Icon.svelte";
+import Button from "@ui/Button.svelte";
+import Icon from "@ui/Icon.svelte";
 
-  let {
-    wantToDeleteTask,
-  }: {
-    wantToDeleteTask: () => void;
-  } = $props();
+const {
+	wantToDeleteTask,
+}: {
+	wantToDeleteTask: () => void;
+} = $props();
 </script>
 
 <td class="border-gray-500 text-center">

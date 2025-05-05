@@ -1,30 +1,31 @@
 <!-- This component renders all existing subtasks of the current task. -->
 
 <script lang="ts">
-  import type {
-    LocalProject,
-    LocalProjectTask,
-    PossibleEditTaskPopupTabs,
-  } from "@components/types";
-  import SearchResult from "./SearchResult.svelte";
+import type {
+	LocalProject,
+	LocalProjectTask,
+	PossibleEditTaskPopupTabs,
+} from "@components/types";
+import SearchResult from "./SearchResult.svelte";
 
-  let {
-    currentProject,
-    task = $bindable(),
-    currentTab = $bindable(),
-    switchToTask,
-    wantToDeleteRelation,
-  }: {
-    currentProject: LocalProject;
-    task: Omit<LocalProjectTask, "id">;
-    currentTab: PossibleEditTaskPopupTabs;
-    switchToTask: (task: LocalProjectTask) => void;
-    wantToDeleteRelation: (relatedTaskId: string) => void;
-  } = $props();
+// biome-ignore lint/style/useConst: These are props and work like this
+let {
+	currentProject,
+	task = $bindable(),
+	currentTab = $bindable(),
+	switchToTask,
+	wantToDeleteRelation,
+}: {
+	currentProject: LocalProject;
+	task: Omit<LocalProjectTask, "id">;
+	currentTab: PossibleEditTaskPopupTabs;
+	switchToTask: (task: LocalProjectTask) => void;
+	wantToDeleteRelation: (relatedTaskId: string) => void;
+} = $props();
 
-  function findTasksWithIds(ids: Array<string>) {
-    return currentProject.tasks.filter((element) => ids.includes(element.id));
-  }
+function findTasksWithIds(ids: Array<string>) {
+	return currentProject.tasks.filter((element) => ids.includes(element.id));
+}
 </script>
 
 <div>Existing subtasks:</div>

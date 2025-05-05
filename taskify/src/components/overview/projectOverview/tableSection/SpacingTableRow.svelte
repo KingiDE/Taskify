@@ -1,11 +1,12 @@
 <script lang="ts">
-  import type { LocalProject } from "@components/types";
+import type { LocalProject } from "@components/types";
 
-  let {
-    currentProject,
-  }: {
-    currentProject: LocalProject;
-  } = $props();
+// biome-ignore lint/style/useConst: These are props and work like this
+let {
+	currentProject,
+}: {
+	currentProject: LocalProject;
+} = $props();
 </script>
 
 <tr class="h-5">

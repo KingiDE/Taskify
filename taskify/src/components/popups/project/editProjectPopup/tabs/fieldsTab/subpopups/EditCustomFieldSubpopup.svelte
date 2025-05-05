@@ -1,44 +1,42 @@
 <!-- This subpoup lets you edit a existing custom field inside a project. -->
 
 <script lang="ts">
-  import type { LocalProjectCustomField } from "@components/types";
-  import Input from "@ui/Input.svelte";
-  import VariantBtn from "./addCustomFieldSubpopup/VariantBtn.svelte";
+import type { LocalProjectCustomField } from "@components/types";
+import Input from "@ui/Input.svelte";
+import VariantBtn from "./addCustomFieldSubpopup/VariantBtn.svelte";
 
-  let {
-    currentCustomField = $bindable(),
-  }: {
-    currentCustomField: LocalProjectCustomField;
-  } = $props();
+const {
+	currentCustomField = $bindable(),
+}: {
+	currentCustomField: LocalProjectCustomField;
+} = $props();
 
-  import {
-    initializeInputs,
-    editCustomFieldInputs,
-    updateInputsFieldsInSelectEffect,
-  } from "@hooks/customFields/useEditCustomField.svelte.ts";
-  import { onMount } from "svelte";
-  import { getVariantBoxPosition } from "src/utils/customFieldsInput";
+import {
+	editCustomFieldInputs,
+	initializeInputs,
+	updateInputsFieldsInSelectEffect,
+} from "@hooks/customFields/useEditCustomField.svelte.ts";
+import { getVariantBoxPosition } from "src/utils/customFieldsInput";
+import { onMount } from "svelte";
 
-  onMount(() => {
-    initializeInputs(currentCustomField);
-  });
+onMount(() => {
+	initializeInputs(currentCustomField);
+});
 
-  const variantBoxPosition = $derived.by(() => {
-    return getVariantBoxPosition(currentCustomField.variant);
-  });
+const variantBoxPosition = $derived.by(() => {
+	return getVariantBoxPosition(currentCustomField.variant);
+});
 
-  $effect(() => {
-    currentCustomField.name = editCustomFieldInputs.value.name;
-    currentCustomField.variant = editCustomFieldInputs.value.variant;
-    currentCustomField.options =
-      editCustomFieldInputs.value.variant === "select"
-        ? editCustomFieldInputs.value.options.filter(
-            (element) => element !== ""
-          )
-        : null;
+$effect(() => {
+	currentCustomField.name = editCustomFieldInputs.value.name;
+	currentCustomField.variant = editCustomFieldInputs.value.variant;
+	currentCustomField.options =
+		editCustomFieldInputs.value.variant === "select"
+			? editCustomFieldInputs.value.options.filter((element) => element !== "")
+			: null;
 
-    updateInputsFieldsInSelectEffect();
-  });
+	updateInputsFieldsInSelectEffect();
+});
 </script>
 
 <h1 class="font-poppins font-bold text-2xl justify-self-start">

@@ -1,13 +1,13 @@
 <!-- This component is the head of the table. -->
 
 <script lang="ts">
-  import type { LocalProject } from "@components/types";
+import type { LocalProject } from "@components/types";
 
-  let {
-    currentProject,
-  }: {
-    currentProject: LocalProject;
-  } = $props();
+const {
+	currentProject,
+}: {
+	currentProject: LocalProject;
+} = $props();
 </script>
 
 <thead>

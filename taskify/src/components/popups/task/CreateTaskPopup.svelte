@@ -1,41 +1,41 @@
 <!-- The component that is shown when you want to create a new task. -->
 
 <script lang="ts">
-  import type {
-    LocalProject,
-    LocalProjectTask,
-    PossiblePopups,
-  } from "@components/types";
-  import Button from "@ui/Button.svelte";
-  import NavbarIcon from "../NavbarIcon.svelte";
-  import AppearenceTab from "../task/shared/appearenceTab/AppearenceTab.svelte";
-  import FieldsTab from "./shared/fieldsTab/FieldsTab.svelte";
-  import RelationTab from "../task/shared/relationTab/RelationTab.svelte";
+import type {
+	LocalProject,
+	LocalProjectTask,
+	PossiblePopups,
+} from "@components/types";
+import Button from "@ui/Button.svelte";
+import NavbarIcon from "../NavbarIcon.svelte";
+import AppearenceTab from "../task/shared/appearenceTab/AppearenceTab.svelte";
+import RelationTab from "../task/shared/relationTab/RelationTab.svelte";
+import FieldsTab from "./shared/fieldsTab/FieldsTab.svelte";
 
-  let {
-    currentProject,
-    popup = $bindable(),
-    addTaskToProject,
-    switchToTask,
-  }: {
-    currentProject: LocalProject;
-    popup: PossiblePopups;
-    addTaskToProject: (inputs: LocalProjectTask) => void;
-    switchToTask: (task: LocalProjectTask) => void;
-  } = $props();
+let {
+	currentProject,
+	popup = $bindable(),
+	addTaskToProject,
+	switchToTask,
+}: {
+	currentProject: LocalProject;
+	popup: PossiblePopups;
+	addTaskToProject: (inputs: LocalProjectTask) => void;
+	switchToTask: (task: LocalProjectTask) => void;
+} = $props();
 
-  import {
-    addTaskInput,
-    getInvalidInputs,
-    addTask,
-    currentTab,
-  } from "@hooks/useCreateTaskPopup.svelte";
+import {
+	addTask,
+	addTaskInput,
+	currentTab,
+	getInvalidInputs,
+} from "@hooks/useCreateTaskPopup.svelte";
 
-  function hidePopup() {
-    popup = null;
-  }
+function hidePopup() {
+	popup = null;
+}
 
-  const invalidInputs = $derived.by(getInvalidInputs);
+const invalidInputs = $derived.by(getInvalidInputs);
 </script>
 
 <div class="w-full flex flex-col gap-4 max-h-[700px] h-[calc(100dvh_-_48px)]">

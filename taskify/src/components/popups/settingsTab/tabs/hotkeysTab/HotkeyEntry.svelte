@@ -1,15 +1,15 @@
 <script lang="ts">
-  let {
-    title,
-    keyA,
-    keyB,
-    additionalNote,
-  }: {
-    title: string;
-    keyA: string;
-    keyB?: string;
-    additionalNote?: string;
-  } = $props();
+const {
+	title,
+	keyA,
+	keyB,
+	additionalNote,
+}: {
+	title: string;
+	keyA: string;
+	keyB?: string;
+	additionalNote?: string;
+} = $props();
 </script>
 
 <div class="grid gap-2">

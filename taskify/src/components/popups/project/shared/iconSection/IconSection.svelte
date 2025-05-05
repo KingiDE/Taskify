@@ -1,15 +1,16 @@
 <!-- This component lets you select the icon of a project. -->
 
 <script lang="ts">
-  import type { LocalProject } from "@components/types";
-  import { icons } from "@ui/icons";
-  import IconButton from "./IconButton.svelte";
+import type { LocalProject } from "@components/types";
+import { icons } from "@ui/icons";
+import IconButton from "./IconButton.svelte";
 
-  let {
-    project = $bindable(),
-  }: {
-    project: Omit<LocalProject, "id">;
-  } = $props();
+// biome-ignore lint/style/useConst: These are props and work like this
+let {
+	project = $bindable(),
+}: {
+	project: Omit<LocalProject, "id">;
+} = $props();
 </script>
 
 <div class="mt-2">

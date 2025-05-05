@@ -1,11 +1,12 @@
 <script lang="ts">
-  let {
-    shownCount,
-    exsitingCount,
-  }: {
-    shownCount: number;
-    exsitingCount: number;
-  } = $props();
+// biome-ignore lint/style/useConst: These are props and work like this
+let {
+	shownCount,
+	exsitingCount,
+}: {
+	shownCount: number;
+	exsitingCount: number;
+} = $props();
 </script>
 
 <div class="h-2">

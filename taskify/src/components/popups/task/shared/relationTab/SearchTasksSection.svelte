@@ -1,54 +1,57 @@
 <!-- The component that is shown in the relation-tab. It handles searches for possible relations. -->
 
 <script lang="ts">
-  import type {
-    LocalProject,
-    LocalProjectTask,
-    PossibleEditTaskPopupTabs,
-  } from "@components/types";
-  import Icon from "@ui/Icon.svelte";
-  import Input from "@ui/Input.svelte";
-  import SearchResult from "./SearchResult.svelte";
-  import { filterTasksBySearchQuery } from "src/utils/searchHandler/searchHandler";
+import type {
+	LocalProject,
+	LocalProjectTask,
+	PossibleEditTaskPopupTabs,
+} from "@components/types";
+import Icon from "@ui/Icon.svelte";
+import Input from "@ui/Input.svelte";
+import { filterTasksBySearchQuery } from "src/utils/searchHandler/searchHandler";
+import SearchResult from "./SearchResult.svelte";
 
-  let {
-    switchToTask,
-    currentProject,
-    task = $bindable(),
-    currentTab = $bindable(),
-    searchbar = $bindable(),
-  }: {
-    switchToTask: (task: LocalProjectTask) => void;
-    currentProject: LocalProject;
-    task: Omit<LocalProjectTask, "id">;
-    currentTab: PossibleEditTaskPopupTabs;
-    searchbar: HTMLInputElement | null;
-  } = $props();
+// biome-ignore lint/style/useConst: These are props and work like this
+let {
+	switchToTask,
+	currentProject,
+	task = $bindable(),
+	currentTab = $bindable(),
+	searchbar = $bindable(),
+}: {
+	switchToTask: (task: LocalProjectTask) => void;
+	currentProject: LocalProject;
+	task: Omit<LocalProjectTask, "id">;
+	currentTab: PossibleEditTaskPopupTabs;
+	searchbar: HTMLInputElement | null;
+} = $props();
 
-  let searchQuery = $state("");
-  let searchResults = $derived.by(() => {
-    if (searchQuery === "") return [];
-    const logicalFilter = currentProject.tasks.filter((element) => {
-      // Doesn't reference itself if it has an id (= already exists and isn't edited)
-      if ("id" in task && task.id === element.id) {
-        return false;
-      }
-      // Doesn't show up when its already added
-      if (task.childTasks.includes(element.id)) {
-        return false;
-      }
+// biome-ignore lint/style/useConst: <explanation>
+let searchQuery = $state("");
 
-      return true;
-    });
+const searchResults = $derived.by(() => {
+	if (searchQuery === "") return [];
+	const logicalFilter = currentProject.tasks.filter((element) => {
+		// Doesn't reference itself if it has an id (= already exists and isn't edited)
+		if ("id" in task && task.id === element.id) {
+			return false;
+		}
+		// Doesn't show up when its already added
+		if (task.childTasks.includes(element.id)) {
+			return false;
+		}
 
-    return filterTasksBySearchQuery(
-      searchQuery,
-      logicalFilter,
-      currentProject.customFields,
-    );
-  });
+		return true;
+	});
 
-  $inspect(searchResults);
+	return filterTasksBySearchQuery(
+		searchQuery,
+		logicalFilter,
+		currentProject.customFields,
+	);
+});
+
+$inspect(searchResults);
 </script>
 
 <div class="mt-2 min-h-[375px]">

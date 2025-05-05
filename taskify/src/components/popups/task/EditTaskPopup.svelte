@@ -1,33 +1,35 @@
 <!-- The component that is shown when editing an existing task. It contains the Navbar-Icons as links and tabs. -->
 
 <script lang="ts">
-  import type {
-    LocalProject,
-    LocalProjectTask,
-    PossibleEditTaskPopupTabs,
-    PossiblePopups,
-  } from "@components/types";
-  import NavbarIcon from "../NavbarIcon.svelte";
-  import AppearenceTab from "./shared/appearenceTab/AppearenceTab.svelte";
-  import DestructiveTab from "./shared/DestructiveTab.svelte";
-  import FieldsTab from "./shared/fieldsTab/FieldsTab.svelte";
-  import RelationTab from "./shared/relationTab/RelationTab.svelte";
+import type {
+	LocalProject,
+	LocalProjectTask,
+	PossibleEditTaskPopupTabs,
+	PossiblePopups,
+} from "@components/types";
+import NavbarIcon from "../NavbarIcon.svelte";
+import DestructiveTab from "./shared/DestructiveTab.svelte";
+import AppearenceTab from "./shared/appearenceTab/AppearenceTab.svelte";
+import FieldsTab from "./shared/fieldsTab/FieldsTab.svelte";
+import RelationTab from "./shared/relationTab/RelationTab.svelte";
 
-  let {
-    popup = $bindable(),
-    currentTask,
-    currentProject,
-    deleteTaskWithCurrentId,
-    switchToTask,
-  }: {
-    popup: PossiblePopups;
-    currentTask: LocalProjectTask;
-    currentProject: LocalProject;
-    deleteTaskWithCurrentId: () => void;
-    switchToTask: (task: LocalProjectTask) => void;
-  } = $props();
+// biome-ignore lint/style/useConst: These are props and work like this
+let {
+	popup = $bindable(),
+	currentTask,
+	currentProject,
+	deleteTaskWithCurrentId,
+	switchToTask,
+}: {
+	popup: PossiblePopups;
+	currentTask: LocalProjectTask;
+	currentProject: LocalProject;
+	deleteTaskWithCurrentId: () => void;
+	switchToTask: (task: LocalProjectTask) => void;
+} = $props();
 
-  let currentTab = $state<PossibleEditTaskPopupTabs>("appearence");
+// biome-ignore lint/style/useConst: <explanation>
+let currentTab = $state<PossibleEditTaskPopupTabs>("appearence");
 </script>
 
 <div class="flex flex-col gap-4 w-full max-h-[700px] h-[calc(100dvh_-_48px)]">

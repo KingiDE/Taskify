@@ -1,34 +1,36 @@
 <!-- The component for single search-results of possible relations in the relations-tab. -->
 
 <script lang="ts">
-  import type {
-    LocalProject,
-    LocalProjectTask,
-    PossibleEditTaskPopupTabs,
-  } from "@components/types";
-  import Button from "@ui/Button.svelte";
-  import Icon from "@ui/Icon.svelte";
-  import InfoScreen from "./InfoScreen.svelte";
+import type {
+	LocalProject,
+	LocalProjectTask,
+	PossibleEditTaskPopupTabs,
+} from "@components/types";
+import Button from "@ui/Button.svelte";
+import Icon from "@ui/Icon.svelte";
+import InfoScreen from "./InfoScreen.svelte";
 
-  let {
-    currentProject,
-    currentTab = $bindable(),
-    switchToTask,
-    subtask,
-    hasMargin,
-    variant,
-    onClick,
-  }: {
-    currentProject: LocalProject;
-    currentTab: PossibleEditTaskPopupTabs;
-    switchToTask: (task: LocalProjectTask) => void;
-    hasMargin: boolean;
-    subtask: LocalProjectTask;
-    variant: "add" | "delete";
-    onClick: (e: MouseEvent) => void;
-  } = $props();
+// biome-ignore lint/style/useConst: These are props and work like this
+let {
+	currentProject,
+	currentTab = $bindable(),
+	switchToTask,
+	subtask,
+	hasMargin,
+	variant,
+	onClick,
+}: {
+	currentProject: LocalProject;
+	currentTab: PossibleEditTaskPopupTabs;
+	switchToTask: (task: LocalProjectTask) => void;
+	hasMargin: boolean;
+	subtask: LocalProjectTask;
+	variant: "add" | "delete";
+	onClick: (e: MouseEvent) => void;
+} = $props();
 
-  let showInfoScreen = $state(false);
+// biome-ignore lint/style/useConst: <explanation>
+let showInfoScreen = $state(false);
 </script>
 
 <div

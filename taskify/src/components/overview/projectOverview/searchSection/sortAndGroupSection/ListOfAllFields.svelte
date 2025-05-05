@@ -1,24 +1,25 @@
 <script lang="ts">
-  import type {
-    LocalProjectCustomField,
-    PossibleSearchSubpopups,
-  } from "@components/types";
-  import Button from "@ui/Button.svelte";
-  import Icon from "@ui/Icon.svelte";
-  import { firstCapital } from "src/utils/stringUtils";
-  import { fade } from "svelte/transition";
+import type {
+	LocalProjectCustomField,
+	PossibleSearchSubpopups,
+} from "@components/types";
+import Button from "@ui/Button.svelte";
+import Icon from "@ui/Icon.svelte";
+import { firstCapital } from "src/utils/stringUtils";
+import { fade } from "svelte/transition";
 
-  let {
-    customFields,
-    valueToUpdate = $bindable(),
-    subpopup = $bindable(),
-    showUnsetBtn,
-  }: {
-    customFields: Array<LocalProjectCustomField>;
-    valueToUpdate: string | null;
-    subpopup: PossibleSearchSubpopups;
-    showUnsetBtn?: boolean;
-  } = $props();
+// biome-ignore lint/style/useConst: These are props and work like this
+let {
+	customFields,
+	valueToUpdate = $bindable(),
+	subpopup = $bindable(),
+	showUnsetBtn,
+}: {
+	customFields: Array<LocalProjectCustomField>;
+	valueToUpdate: string | null;
+	subpopup: PossibleSearchSubpopups;
+	showUnsetBtn?: boolean;
+} = $props();
 </script>
 
 <div

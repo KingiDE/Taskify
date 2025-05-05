@@ -2,29 +2,30 @@
 The getter function returns the acutal value while the setter function updates the state. -->
 
 <script lang="ts">
-  let {
-    getter,
-    setter,
-    label,
-    placeholder,
-    labelExtraCSS,
-    inputExtraCSS,
-    disabled,
-    type,
-    searchbar = $bindable(),
-    onFocus,
-  }: {
-    getter: () => string;
-    setter: (newValue: string) => void;
-    label?: string;
-    placeholder?: string;
-    labelExtraCSS?: string;
-    inputExtraCSS?: string;
-    disabled?: boolean;
-    type?: "text" | "number";
-    searchbar?: HTMLInputElement | null;
-    onFocus?: () => void;
-  } = $props();
+// biome-ignore lint/style/useConst: These are props and work like this
+let {
+	getter,
+	setter,
+	label,
+	placeholder,
+	labelExtraCSS,
+	inputExtraCSS,
+	disabled,
+	type,
+	searchbar = $bindable(),
+	onFocus,
+}: {
+	getter: () => string;
+	setter: (newValue: string) => void;
+	label?: string;
+	placeholder?: string;
+	labelExtraCSS?: string;
+	inputExtraCSS?: string;
+	disabled?: boolean;
+	type?: "text" | "number";
+	searchbar?: HTMLInputElement | null;
+	onFocus?: () => void;
+} = $props();
 </script>
 
 <label class={labelExtraCSS}>

@@ -3,21 +3,21 @@ The getter function returns the acutal value while the setter function updates t
 This component works similar to the Input-component.  -->
 
 <script lang="ts">
-  let {
-    getter,
-    setter,
-    label,
-    placeholder,
-    labelExtraCSS,
-    inputExtraCSS,
-  }: {
-    getter: () => string;
-    setter: (newValue: string) => void;
-    label: string;
-    placeholder?: string;
-    labelExtraCSS?: string;
-    inputExtraCSS?: string;
-  } = $props();
+const {
+	getter,
+	setter,
+	label,
+	placeholder,
+	labelExtraCSS,
+	inputExtraCSS,
+}: {
+	getter: () => string;
+	setter: (newValue: string) => void;
+	label: string;
+	placeholder?: string;
+	labelExtraCSS?: string;
+	inputExtraCSS?: string;
+} = $props();
 </script>
 
 <label class={labelExtraCSS}>

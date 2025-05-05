@@ -1,42 +1,42 @@
 <!-- This component lets you select the value of the any custom field of the variant "select" directly in the table . -->
 
 <script lang="ts">
-  import type { LocalProjectTask } from "@components/types";
-  import Button from "@ui/Button.svelte";
-  import { fade } from "svelte/transition";
+import type { LocalProjectTask } from "@components/types";
+import Button from "@ui/Button.svelte";
+import { fade } from "svelte/transition";
 
-  let {
-    task = $bindable(),
-    possibleOptions,
-    customField = $bindable(),
-  }: {
-    task: LocalProjectTask;
-    possibleOptions: Array<string> | null;
-    customField: {
-      id: string;
-      variant: "select";
-      value: string | null;
-    };
-  } = $props();
+const {
+	task = $bindable(),
+	possibleOptions,
+	customField = $bindable(),
+}: {
+	task: LocalProjectTask;
+	possibleOptions: Array<string> | null;
+	customField: {
+		id: string;
+		variant: "select";
+		value: string | null;
+	};
+} = $props();
 
-  let showOptions = $state(false);
+// biome-ignore lint/style/useConst: <explanation>
+let showOptions = $state(false);
 
-  // The possible current value that is stored in the task for this custom field
-  let currentValue = $derived.by(() => {
-    return task.customFields.find((element) => element.id === customField.id);
-  });
+// The possible current value that is stored in the task for this custom field
+const currentValue = $derived.by(() => {
+	return task.customFields.find((element) => element.id === customField.id);
+});
 
-  $effect(() => {
-    // If the current value is one that isn't possible, it will get set to null
-    if (
-      currentValue &&
-      currentValue.value &&
-      possibleOptions &&
-      !possibleOptions.includes(currentValue.value.toString())
-    ) {
-      currentValue.value = null;
-    }
-  });
+$effect(() => {
+	// If the current value is one that isn't possible, it will get set to null
+	if (
+		currentValue?.value &&
+		possibleOptions &&
+		!possibleOptions.includes(currentValue.value.toString())
+	) {
+		currentValue.value = null;
+	}
+});
 </script>
 
 <td class="min-w-[125px] border-gray-500 relative text-center text-nowrap">

@@ -1,38 +1,39 @@
 <!-- This subpoup lets you create a new custom fields inside a project. -->
 
 <script lang="ts">
-  import type {
-    LocalProject,
-    PossibleEditProjectFieldsSubpopups,
-  } from "@components/types";
-  import Button from "@ui/Button.svelte";
-  import Input from "@ui/Input.svelte";
-  import VariantBtn from "./VariantBtn.svelte";
+import type {
+	LocalProject,
+	PossibleEditProjectFieldsSubpopups,
+} from "@components/types";
+import Button from "@ui/Button.svelte";
+import Input from "@ui/Input.svelte";
+import VariantBtn from "./VariantBtn.svelte";
 
-  let {
-    project = $bindable(),
-    subpopup = $bindable(),
-  }: {
-    project: LocalProject;
-    subpopup: PossibleEditProjectFieldsSubpopups;
-  } = $props();
+// biome-ignore lint/style/useConst: These are props and work like this
+let {
+	project = $bindable(),
+	subpopup = $bindable(),
+}: {
+	project: LocalProject;
+	subpopup: PossibleEditProjectFieldsSubpopups;
+} = $props();
 
-  import {
-    updateInputsFieldsInSelectEffect,
-    addCustomFieldInputs,
-    getInvalidInputs,
-    addCustomFieldToProject,
-  } from "@hooks/customFields/useAddCustomField.svelte";
-  import { getVariantBoxPosition } from "src/utils/customFieldsInput";
+import {
+	addCustomFieldInputs,
+	addCustomFieldToProject,
+	getInvalidInputs,
+	updateInputsFieldsInSelectEffect,
+} from "@hooks/customFields/useAddCustomField.svelte";
+import { getVariantBoxPosition } from "src/utils/customFieldsInput";
 
-  $effect(() => {
-    updateInputsFieldsInSelectEffect();
-  });
+$effect(() => {
+	updateInputsFieldsInSelectEffect();
+});
 
-  const invalidInputs = $derived.by(getInvalidInputs);
-  const variantBoxPosition = $derived.by(() => {
-    return getVariantBoxPosition(addCustomFieldInputs.value.variant);
-  });
+const invalidInputs = $derived.by(getInvalidInputs);
+const variantBoxPosition = $derived.by(() => {
+	return getVariantBoxPosition(addCustomFieldInputs.value.variant);
+});
 </script>
 
 <h1 class="font-poppins font-bold text-2xl justify-self-start">

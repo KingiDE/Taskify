@@ -1,5 +1,5 @@
 <script lang="ts">
-  import OperatorTable from "./OperatorTable.svelte";
+import OperatorTable from "./OperatorTable.svelte";
 </script>
 
 <div class="grid gap-2 pr-1.5">

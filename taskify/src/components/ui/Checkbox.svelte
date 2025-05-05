@@ -2,19 +2,19 @@
 handle the click-event. -->
 
 <script lang="ts">
-  import Icon from "./Icon.svelte";
+import Icon from "./Icon.svelte";
 
-  let {
-    label,
-    value,
-    onClick,
-    extraCSS,
-  }: {
-    label?: string;
-    value: boolean;
-    onClick: () => void;
-    extraCSS?: string;
-  } = $props();
+const {
+	label,
+	value,
+	onClick,
+	extraCSS,
+}: {
+	label?: string;
+	value: boolean;
+	onClick: () => void;
+	extraCSS?: string;
+} = $props();
 </script>
 
 <label class={`flex gap-2 items-center cursor-pointer ${extraCSS}`}>

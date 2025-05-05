@@ -1,16 +1,17 @@
 <!-- The component that is shown when you want to delete an existing task. -->
 
 <script lang="ts">
-  import type { PossiblePopups } from "@components/types";
-  import DestructiveTab from "./shared/DestructiveTab.svelte";
+import type { PossiblePopups } from "@components/types";
+import DestructiveTab from "./shared/DestructiveTab.svelte";
 
-  let {
-    deleteTaskWithCurrentId,
-    popup = $bindable(),
-  }: {
-    deleteTaskWithCurrentId: () => void;
-    popup: PossiblePopups;
-  } = $props();
+// biome-ignore lint/style/useConst: These are props and work like this
+let {
+	deleteTaskWithCurrentId,
+	popup = $bindable(),
+}: {
+	deleteTaskWithCurrentId: () => void;
+	popup: PossiblePopups;
+} = $props();
 </script>
 
 <div class="max-w-[575px] grid">
