@@ -22,6 +22,25 @@ Because Taskify makes use of the integrated database that's baked into the brows
 
 To delete all of your data, click the settings-button at the bottom-right corner of your screen and press the "Delete all data"-button. This will empty the entire local-database store.
 
+## 💻 Run locally
+
+**Run locally:** <br/>
+To run this project yourself, simply clone the repository, install all the required npm-packages (e.g. with `bun install`) and start the dev-server (e.g. with `bun run dev`). 
+After that, everything should work just perfectly fine.
+
+**Extensions:** <br/>
+It might be useful to install extensions for the tools that are used in this project. Here's a short list:
+- Astro
+- Svelte
+- Biome (Linter and Code-Formatter)
+- TailwindCSS Intellisense
+
+Also, to correctly format on save, you can modify your Code editor's settings to use Biome as the default formatter for `.ts`, `.js` and `.svelte` files. 
+
+**Scripts:** <br/>
+There are two important scripts in the `package.json` file: `ts-check` checks for any TypeScript errors, `biome-check` lints the code, formats it (even without the extension installed) and points out possible errors. 
+Additionally, you can run `npx sv check` (or your preferred package manager) to check for any Svelte errors.
+
 ## ❓️ Help
 
 At the bottom left corner there's a cogwheel that opens a helpful popup once you click it. It explains how hotkeys and search-operators work. 
