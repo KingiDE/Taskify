@@ -26,11 +26,17 @@ import {
 	isSidebarExpanded,
 	toggleIsSidebarExpanded,
 } from "@hooks/twoColumns/useSidebar.svelte.ts";
-import { addTaskInput } from "@hooks/useCreateTaskPopup.svelte";
-import type { PossiblePopups } from "./types";
+import {
+	addTaskInput,
+	resetCreateTaskInputs,
+} from "@hooks/useCreateTaskPopup.svelte";
 
 mount();
 update();
+
+$effect(() => {
+	if (popup.value !== "add_task") resetCreateTaskInputs();
+});
 </script>
 
 <!-- The root component that contains the sidebar, the overview and renders all popups.  -->

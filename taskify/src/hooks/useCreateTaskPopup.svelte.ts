@@ -75,6 +75,11 @@ export function addTask(
 		...addTaskInput.value,
 		customFields,
 	});
+
+	resetCreateTaskInputs();
+}
+
+export function resetCreateTaskInputs() {
 	addTaskInput.value = {
 		title: "",
 		description: "",
