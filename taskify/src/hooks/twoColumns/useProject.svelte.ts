@@ -75,17 +75,19 @@ export function switchToTask(task: LocalProjectTask) {
 export function mount() {
 	onMount(async () => {
 		document.addEventListener("keydown", (e) => {
-			// If an input is focused, hotkeys don't work
+			// Close all popups
+			if (e.key === "Escape") {
+				popup.value = null;
+			}
+
+			// If an input is focused, other hotkeys than the "close-hotkey" don't work
 			if (document.activeElement?.tagName === "INPUT") return;
 
 			// Toggle sidebar expanded
 			if (e.key === "B") {
 				toggleIsSidebarExpanded(popup.value);
 			}
-			// Close all popups
-			if (e.key === "Escape") {
-				popup.value = null;
-			}
+
 			// Set popup to "add_task" if sidebar is not expanded, no popup is open and a project is selected,
 			// else set popup to "add_project".
 			if (

@@ -1,16 +1,19 @@
 import type { LocalProjectCustomFieldInput } from "@components/types";
 
 // Returns the corresponding index for the box that marks the active variant custom field
-export function getVariantBoxPosition(variant: "number" | "text" | "checkbox" | "select") {
+export function getVariantBoxPosition(
+	variant: "number" | "text" | "checkbox" | "select",
+) {
 	if (variant === "number") {
 		return 0;
-	} else if (variant === "text") {
-		return 1;
-	} else if (variant === "checkbox") {
-		return 2;
-	} else {
-		return 3;
 	}
+	if (variant === "text") {
+		return 1;
+	}
+	if (variant === "checkbox") {
+		return 2;
+	}
+	return 3;
 }
 
 // Removes all empty fields from the given array but adds one emtpy element at the end
