@@ -1,29 +1,29 @@
 <!-- This popup shows when you want to edit a project. -->
 
 <script lang="ts">
-import type {
-	LocalProject,
-	PossibleEditProjectPopupTabs,
-	PossiblePopups,
-} from "@components/types";
-import NavbarIcon from "../../NavbarIcon.svelte";
-import DestructiveTab from "./tabs/DestructiveTab.svelte";
-import EditAppearenceTab from "./tabs/EditAppearenceTab.svelte";
-import FieldsTab from "./tabs/fieldsTab/FieldsTab.svelte";
+  import type {
+    LocalProject,
+    PossibleEditProjectPopupTabs,
+    PossiblePopups,
+  } from "@components/types";
+  import NavbarIcon from "../../NavbarIcon.svelte";
+  import DestructiveTab from "./tabs/DestructiveTab.svelte";
+  import EditAppearanceTab from "./tabs/EditAppearanceTab.svelte";
+  import FieldsTab from "./tabs/fieldsTab/FieldsTab.svelte";
 
-// biome-ignore lint/style/useConst: These are props and work like this
-let {
-	currentProject = $bindable(),
-	popup = $bindable(),
-	deleteCurrentSelectedProject,
-}: {
-	currentProject: LocalProject;
-	popup: PossiblePopups;
-	deleteCurrentSelectedProject: () => void;
-} = $props();
+  // biome-ignore lint/style/useConst: These are props and work like this
+  let {
+    currentProject = $bindable(),
+    popup = $bindable(),
+    deleteCurrentSelectedProject,
+  }: {
+    currentProject: LocalProject;
+    popup: PossiblePopups;
+    deleteCurrentSelectedProject: () => void;
+  } = $props();
 
-// biome-ignore lint/style/useConst: <explanation>
-let currentTab = $state<PossibleEditProjectPopupTabs>("appearence");
+  // biome-ignore lint/style/useConst: <explanation>
+  let currentTab = $state<PossibleEditProjectPopupTabs>("appearance");
 </script>
 
 <div class="max-h-[700px] h-[calc(100dvh_-_48px)] grid content-start w-full">
@@ -35,9 +35,9 @@ let currentTab = $state<PossibleEditProjectPopupTabs>("appearence");
   >
     <nav class="grid gap-2 content-start">
       <NavbarIcon
-        buttonText="Appearence"
+        buttonText="Appearance"
         iconName="edit"
-        tabValue="appearence"
+        tabValue="appearance"
         bind:currentTab
       />
       <NavbarIcon
@@ -54,8 +54,8 @@ let currentTab = $state<PossibleEditProjectPopupTabs>("appearence");
       />
     </nav>
     <div class="overflow-y-scroll pr-1.5">
-      {#if currentTab === "appearence"}
-        <EditAppearenceTab bind:currentProject />
+      {#if currentTab === "appearance"}
+        <EditAppearanceTab bind:currentProject />
       {/if}
       {#if currentTab === "fields"}
         <FieldsTab bind:project={currentProject} />

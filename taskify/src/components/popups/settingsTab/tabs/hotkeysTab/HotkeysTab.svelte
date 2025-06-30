@@ -1,5 +1,5 @@
 <script lang="ts">
-import HotkeyEntry from "./HotkeyEntry.svelte";
+  import HotkeyEntry from "./HotkeyEntry.svelte";
 </script>
 
 <div class="grid gap-4">

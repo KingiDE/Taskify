@@ -1,35 +1,35 @@
 <!-- The component that is shown when editing an existing task. It contains the Navbar-Icons as links and tabs. -->
 
 <script lang="ts">
-import type {
-	LocalProject,
-	LocalProjectTask,
-	PossibleEditTaskPopupTabs,
-	PossiblePopups,
-} from "@components/types";
-import NavbarIcon from "../NavbarIcon.svelte";
-import DestructiveTab from "./shared/DestructiveTab.svelte";
-import AppearenceTab from "./shared/appearenceTab/AppearenceTab.svelte";
-import FieldsTab from "./shared/fieldsTab/FieldsTab.svelte";
-import RelationTab from "./shared/relationTab/RelationTab.svelte";
+  import type {
+    LocalProject,
+    LocalProjectTask,
+    PossibleEditTaskPopupTabs,
+    PossiblePopups,
+  } from "@components/types";
+  import NavbarIcon from "../NavbarIcon.svelte";
+  import DestructiveTab from "./shared/DestructiveTab.svelte";
+  import AppearanceTab from "./shared/appearanceTab/AppearanceTab.svelte";
+  import FieldsTab from "./shared/fieldsTab/FieldsTab.svelte";
+  import RelationTab from "./shared/relationTab/RelationTab.svelte";
 
-// biome-ignore lint/style/useConst: These are props and work like this
-let {
-	popup = $bindable(),
-	currentTask,
-	currentProject,
-	deleteTaskWithCurrentId,
-	switchToTask,
-}: {
-	popup: PossiblePopups;
-	currentTask: LocalProjectTask;
-	currentProject: LocalProject;
-	deleteTaskWithCurrentId: () => void;
-	switchToTask: (task: LocalProjectTask) => void;
-} = $props();
+  // biome-ignore lint/style/useConst: These are props and work like this
+  let {
+    popup = $bindable(),
+    currentTask,
+    currentProject,
+    deleteTaskWithCurrentId,
+    switchToTask,
+  }: {
+    popup: PossiblePopups;
+    currentTask: LocalProjectTask;
+    currentProject: LocalProject;
+    deleteTaskWithCurrentId: () => void;
+    switchToTask: (task: LocalProjectTask) => void;
+  } = $props();
 
-// biome-ignore lint/style/useConst: <explanation>
-let currentTab = $state<PossibleEditTaskPopupTabs>("appearence");
+  // biome-ignore lint/style/useConst: <explanation>
+  let currentTab = $state<PossibleEditTaskPopupTabs>("appearance");
 </script>
 
 <div class="flex flex-col gap-4 w-full max-h-[700px] h-[calc(100dvh_-_48px)]">
@@ -37,9 +37,9 @@ let currentTab = $state<PossibleEditTaskPopupTabs>("appearence");
   <div class="grid min-[700px]:grid-cols-[250px_auto] gap-8 overflow-y-hidden">
     <nav class="grid gap-2 content-start">
       <NavbarIcon
-        buttonText="Appearence"
+        buttonText="Appearance"
         iconName="edit"
-        tabValue="appearence"
+        tabValue="appearance"
         bind:currentTab
       />
       <NavbarIcon
@@ -62,8 +62,8 @@ let currentTab = $state<PossibleEditTaskPopupTabs>("appearence");
       />
     </nav>
     <div class="overflow-y-scroll pr-1.5">
-      {#if currentTab === "appearence"}
-        <AppearenceTab bind:task={currentTask} />
+      {#if currentTab === "appearance"}
+        <AppearanceTab bind:task={currentTask} />
       {/if}
       {#if currentTab === "fields"}
         <FieldsTab bind:task={currentTask} {currentProject} />

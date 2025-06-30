@@ -97,7 +97,7 @@ export type PossiblePopups =
 	| null;
 
 export type PossibleEditProjectPopupTabs =
-	| "appearence"
+	| "appearance"
 	| "destruction"
 	| "fields";
 
@@ -108,7 +108,7 @@ export type PossibleEditProjectFieldsSubpopups =
 	| null;
 
 export type PossibleEditTaskPopupTabs =
-	| "appearence"
+	| "appearance"
 	| "destruction"
 	| "fields"
 	| "relation";

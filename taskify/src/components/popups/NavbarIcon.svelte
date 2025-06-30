@@ -1,25 +1,25 @@
 <!-- The component that is used in popups that have multiple tabs to switch between them. -->
 
 <script lang="ts">
-import Button from "@ui/Button.svelte";
-import Icon from "@ui/Icon.svelte";
-import type { icons } from "@ui/icons";
+  import Button from "@ui/Button.svelte";
+  import Icon from "@ui/Icon.svelte";
+  import type { icons } from "@ui/icons";
 
-let {
-	buttonText,
-	iconName,
-	tabValue,
-	currentTab = $bindable(),
-}: {
-	buttonText: string;
-	iconName: keyof typeof icons;
-	tabValue: string;
-	currentTab: string;
-} = $props();
+  let {
+    buttonText,
+    iconName,
+    tabValue,
+    currentTab = $bindable(),
+  }: {
+    buttonText: string;
+    iconName: keyof typeof icons;
+    tabValue: string;
+    currentTab: string;
+  } = $props();
 
-function switchToThisTab() {
-	currentTab = tabValue;
-}
+  function switchToThisTab() {
+    currentTab = tabValue;
+  }
 </script>
 
 <Button

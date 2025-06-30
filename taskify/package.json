@@ -8,6 +8,7 @@
 		"preview": "astro preview",
 		"astro": "astro",
 		"ts-check": "tsc --noEmit --skipLibCheck",
+		"svelte-check": "svelte-check",
 		"biome-check": "biome check --write ./src astro.config.mjs package.json svelte.config.js tsconfig.json"
 	},
 	"dependencies": {
@@ -21,7 +22,6 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
-		"prettier": "^3.5.3",
 		"svelte-check": "^4.1.5"
 	}
 }

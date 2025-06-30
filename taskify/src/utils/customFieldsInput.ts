@@ -1,19 +1,19 @@
 import type { LocalProjectCustomFieldInput } from "@components/types";
 
-// Returns the corresponding Talwind-class for the box that marks the active variant custom field
+// Returns the corresponding index for the box that marks the active variant custom field
 export function getVariantBoxPosition(
 	variant: "number" | "text" | "checkbox" | "select",
 ) {
-	switch (variant) {
-		case "number":
-			return "left-0";
-		case "text":
-			return "left-[104px]";
-		case "checkbox":
-			return "left-[208px]";
-		case "select":
-			return "left-[312px]";
+	if (variant === "number") {
+		return 0;
 	}
+	if (variant === "text") {
+		return 1;
+	}
+	if (variant === "checkbox") {
+		return 2;
+	}
+	return 3;
 }
 
 // Removes all empty fields from the given array but adds one emtpy element at the end

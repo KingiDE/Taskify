@@ -1,15 +1,15 @@
 <script lang="ts">
-const {
-	operator,
-	description,
-	useBlocks,
-	noPaddingBottom,
-}: {
-	operator: string;
-	description: string;
-	useBlocks: Array<string>;
-	noPaddingBottom?: boolean;
-} = $props();
+  const {
+    operator,
+    description,
+    useBlocks,
+    noPaddingBottom,
+  }: {
+    operator: string;
+    description: string;
+    useBlocks: Array<string>;
+    noPaddingBottom?: boolean;
+  } = $props();
 </script>
 
 <tr>

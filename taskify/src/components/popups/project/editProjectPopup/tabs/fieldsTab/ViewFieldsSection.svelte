@@ -1,40 +1,40 @@
 <!-- This component lists all existing custom fields of a project. -->
 
 <script lang="ts">
-import type {
-	LocalProject,
-	LocalProjectCustomField,
-	PossibleEditProjectFieldsSubpopups,
-} from "@components/types";
-import Button from "@ui/Button.svelte";
-import Icon from "@ui/Icon.svelte";
+  import type {
+    LocalProject,
+    LocalProjectCustomField,
+    PossibleEditProjectFieldsSubpopups,
+  } from "@components/types";
+  import Button from "@ui/Button.svelte";
+  import Icon from "@ui/Icon.svelte";
 
-// biome-ignore lint/style/useConst: These are props and work like this
-let {
-	project = $bindable(),
-	currentCustomField = $bindable(),
-	subpopup = $bindable(),
-}: {
-	project: LocalProject;
-	currentCustomField: LocalProjectCustomField | null;
-	subpopup: PossibleEditProjectFieldsSubpopups;
-} = $props();
+  // biome-ignore lint/style/useConst: These are props and work like this
+  let {
+    project = $bindable(),
+    currentCustomField = $bindable(),
+    subpopup = $bindable(),
+  }: {
+    project: LocalProject;
+    currentCustomField: LocalProjectCustomField | null;
+    subpopup: PossibleEditProjectFieldsSubpopups;
+  } = $props();
 
-function convertVariantToPretty(
-	variant: "number" | "text" | "select" | "checkbox",
-	options: string[] | null,
-) {
-	switch (variant) {
-		case "number":
-			return "Number";
-		case "text":
-			return "Text";
-		case "select":
-			return `Select (${options?.length ? options.length : 0}) options`;
-		case "checkbox":
-			return "Checkbox";
-	}
-}
+  function convertVariantToPretty(
+    variant: "number" | "text" | "select" | "checkbox",
+    options: string[] | null,
+  ) {
+    switch (variant) {
+      case "number":
+        return "Number";
+      case "text":
+        return "Text";
+      case "select":
+        return `Select (${options?.length ? options.length : 0}) options`;
+      case "checkbox":
+        return "Checkbox";
+    }
+  }
 </script>
 
 <div class="mt-2">Modify custom fields:</div>

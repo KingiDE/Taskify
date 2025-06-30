@@ -9,6 +9,7 @@
 			"@ui/*": ["src/components/ui/*"],
 			"@components/*": ["src/components/*"],
 			"@hooks/*": ["src/hooks/*"]
-		}
+		},
+		"lib": ["ES2017"]
 	}
 }

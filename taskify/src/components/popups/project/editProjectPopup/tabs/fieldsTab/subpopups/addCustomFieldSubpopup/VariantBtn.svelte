@@ -1,18 +1,18 @@
 <!-- This component wraps the logic for creating a Variant-Button (Number, Text, Checkbox, Select) to be used inside the Create-CustomField subpopup. -->
 
 <script lang="ts">
-import Button from "@ui/Button.svelte";
+  import Button from "@ui/Button.svelte";
 
-// biome-ignore lint/style/useConst: These are props and work like this
-let {
-	inputVariant = $bindable(),
-	text,
-	variant,
-}: {
-	inputVariant: "number" | "text" | "checkbox" | "select";
-	text: string;
-	variant: "number" | "text" | "checkbox" | "select";
-} = $props();
+  // biome-ignore lint/style/useConst: These are props and work like this
+  let {
+    inputVariant = $bindable(),
+    text,
+    variant,
+  }: {
+    inputVariant: "number" | "text" | "checkbox" | "select";
+    text: string;
+    variant: "number" | "text" | "checkbox" | "select";
+  } = $props();
 </script>
 
 <Button

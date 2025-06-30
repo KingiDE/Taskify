@@ -1,18 +1,18 @@
 <script lang="ts">
-import type { LocalProject } from "@components/types";
-import NavbarIcon from "../NavbarIcon.svelte";
-import ExportTab from "./tabs/exportTab/ExportTab.svelte";
-import HotkeysTab from "./tabs/hotkeysTab/HotkeysTab.svelte";
-import SearchTab from "./tabs/searchTab/SearchTab.svelte";
+  import type { LocalProject } from "@components/types";
+  import NavbarIcon from "../NavbarIcon.svelte";
+  import ExportTab from "./tabs/exportTab/ExportTab.svelte";
+  import HotkeysTab from "./tabs/hotkeysTab/HotkeysTab.svelte";
+  import SearchTab from "./tabs/searchTab/SearchTab.svelte";
 
-const {
-	projects,
-}: {
-	projects: Array<LocalProject>;
-} = $props();
+  const {
+    projects,
+  }: {
+    projects: Array<LocalProject>;
+  } = $props();
 
-// biome-ignore lint/style/useConst: <explanation>
-let currentTab = $state<"hotkeys" | "search" | "export">("hotkeys");
+  // biome-ignore lint/style/useConst: <explanation>
+  let currentTab = $state<"hotkeys" | "search" | "export">("hotkeys");
 </script>
 
 <div class="grid content-start gap-4 max-h-[700px] h-[calc(100dvh_-_48px)]">

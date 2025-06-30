@@ -2,18 +2,18 @@
 on a rendered task in the table. -->
 
 <script lang="ts">
-import type { PossiblePopups } from "@components/types";
-import Button from "@ui/Button.svelte";
-import Icon from "@ui/Icon.svelte";
+  import type { PossiblePopups } from "@components/types";
+  import Button from "@ui/Button.svelte";
+  import Icon from "@ui/Icon.svelte";
 
-// biome-ignore lint/style/useConst: These are props and work like this
-let {
-	popup = $bindable(),
-	deleteTaskWithCurrentId,
-}: {
-	popup: PossiblePopups;
-	deleteTaskWithCurrentId: () => void;
-} = $props();
+  // biome-ignore lint/style/useConst: These are props and work like this
+  let {
+    popup = $bindable(),
+    deleteTaskWithCurrentId,
+  }: {
+    popup: PossiblePopups;
+    deleteTaskWithCurrentId: () => void;
+  } = $props();
 </script>
 
 <div

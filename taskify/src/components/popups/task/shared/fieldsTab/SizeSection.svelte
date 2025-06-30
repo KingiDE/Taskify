@@ -1,14 +1,14 @@
 <!-- This component lets you edit the "size" field of a task. -->
 
 <script lang="ts">
-import type { LocalProjectTask } from "@components/types";
-import Button from "@ui/Button.svelte";
+  import type { LocalProjectTask } from "@components/types";
+  import Button from "@ui/Button.svelte";
 
-const {
-	task = $bindable(),
-}: {
-	task: Omit<LocalProjectTask, "id">;
-} = $props();
+  const {
+    task = $bindable(),
+  }: {
+    task: Omit<LocalProjectTask, "id">;
+  } = $props();
 </script>
 
 <div class="mt-2">

@@ -1,43 +1,43 @@
 <script lang="ts">
-import type { PossiblePopups } from "@components/types";
-import Icon from "@ui/Icon.svelte";
-import Input from "@ui/Input.svelte";
-import { onMount } from "svelte";
+	import type { PossiblePopups } from "@components/types";
+	import Icon from "@ui/Icon.svelte";
+	import Input from "@ui/Input.svelte";
+	import { onMount } from "svelte";
 
-// biome-ignore lint/style/useConst: These are props and work like this
-let {
-	popup,
-	searchQuery = $bindable(),
-	hideAnySubpopup,
-}: {
-	popup: PossiblePopups;
-	searchQuery: string;
-	hideAnySubpopup: () => void;
-} = $props();
+	// biome-ignore lint/style/useConst: These are props and work like this
+	let {
+		popup,
+		searchQuery = $bindable(),
+		hideAnySubpopup,
+	}: {
+		popup: PossiblePopups;
+		searchQuery: string;
+		hideAnySubpopup: () => void;
+	} = $props();
 
-// biome-ignore lint/style/useConst: <explanation>
-let searchbar = $state<HTMLInputElement | null>(null);
+	// biome-ignore lint/style/useConst: <explanation>
+	let searchbar = $state<HTMLInputElement | null>(null);
 
-onMount(() => {
-	// Moving into seperate function to be able to remove later
-	function handleF(e: KeyboardEvent) {
-		// If an input is already focused, hotkeys don't work
-		if (document.activeElement?.tagName === "INPUT") return;
+	onMount(() => {
+		// Moving into seperate function to be able to remove later
+		function handleF(e: KeyboardEvent) {
+			// If an input is already focused, hotkeys don't work
+			if (document.activeElement?.tagName === "INPUT") return;
 
-		if (e.key === "F" && searchbar && popup === null) {
-			searchbar.focus();
-			hideAnySubpopup();
-			// Cancels the event
-			e.preventDefault();
+			if (e.key === "F" && searchbar && popup === null) {
+				searchbar.focus();
+				hideAnySubpopup();
+				// Cancels the event
+				e.preventDefault();
+			}
 		}
-	}
 
-	document.addEventListener("keydown", handleF);
+		document.addEventListener("keydown", handleF);
 
-	return () => {
-		document.removeEventListener("keydown", handleF);
-	};
-});
+		return () => {
+			document.removeEventListener("keydown", handleF);
+		};
+	});
 </script>
 
 <div class="mt-8 relative">

@@ -1,26 +1,26 @@
 <!-- The entire sidebar that contains the burger-icon plus heading, all projects as Navbar-Icons and the WantToAddProjectButton-button. -->
 
 <script lang="ts">
-import type { LocalProject, PossiblePopups } from "@components/types";
-import Heading from "./Heading.svelte";
-import ProjectIcon from "./ProjectIcon.svelte";
-import SettingsButton from "./SettingsButton.svelte";
-import WantToAddButton from "./WantToAddProjectButton.svelte";
+  import type { LocalProject, PossiblePopups } from "@components/types";
+  import Heading from "./Heading.svelte";
+  import ProjectIcon from "./ProjectIcon.svelte";
+  import SettingsButton from "./SettingsButton.svelte";
+  import WantToAddButton from "./WantToAddProjectButton.svelte";
 
-// biome-ignore lint/style/useConst: These are props and work like this
-let {
-	isSidebarExpanded,
-	toggleIsSidebarExpanded,
-	popup = $bindable(),
-	projects,
-	currentProject = $bindable(),
-}: {
-	isSidebarExpanded: boolean;
-	toggleIsSidebarExpanded: () => void;
-	popup: PossiblePopups;
-	projects: Array<LocalProject>;
-	currentProject: LocalProject | null;
-} = $props();
+  // biome-ignore lint/style/useConst: These are props and work like this
+  let {
+    isSidebarExpanded,
+    toggleIsSidebarExpanded,
+    popup = $bindable(),
+    projects,
+    currentProject = $bindable(),
+  }: {
+    isSidebarExpanded: boolean;
+    toggleIsSidebarExpanded: () => void;
+    popup: PossiblePopups;
+    projects: Array<LocalProject>;
+    currentProject: LocalProject | null;
+  } = $props();
 </script>
 
 <div
