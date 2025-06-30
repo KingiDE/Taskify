@@ -10,7 +10,6 @@
 	import ShowCountSection from "./ShowCountSection.svelte";
 	import SortAndGroupSection from "./sortAndGroupSection/SortAndGroupSection.svelte";
 
-	// biome-ignore lint/style/useConst: These are props and work like this
 	let {
 		popup,
 		searchQuery = $bindable(),

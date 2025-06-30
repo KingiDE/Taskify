@@ -5,8 +5,8 @@ on a rendered task in the table. -->
   import type { PossiblePopups } from "@components/types";
   import Button from "@ui/Button.svelte";
   import Icon from "@ui/Icon.svelte";
+  import { fade } from "svelte/transition";
 
-  // biome-ignore lint/style/useConst: These are props and work like this
   let {
     popup = $bindable(),
     deleteTaskWithCurrentId,
@@ -14,6 +14,8 @@ on a rendered task in the table. -->
     popup: PossiblePopups;
     deleteTaskWithCurrentId: () => void;
   } = $props();
+
+  let hasTriedToDelete = $state(false);
 </script>
 
 <div
@@ -24,14 +26,13 @@ on a rendered task in the table. -->
   carefully. This process is not reversible!
 </div>
 <div class="mt-4">Delete this task:</div>
-<div class="mt-1 flex gap-2">
+<div class="mt-1 flex gap-4">
   <Button
     extraCSS="py-2 px-4"
     extraRules={["no-padding"]}
     meaning="negative"
     onClick={() => {
-      deleteTaskWithCurrentId();
-      popup = null;
+      hasTriedToDelete = true;
     }}
   >
     {#snippet icon()}
@@ -41,4 +42,20 @@ on a rendered task in the table. -->
       Delete task
     {/snippet}
   </Button>
+  {#if hasTriedToDelete}
+    <div transition:fade={{ duration: 100 }}>
+      <Button
+        onClick={() => {
+          deleteTaskWithCurrentId();
+          popup = null;
+        }}
+        meaning="negative"
+        extraCSS="px-4"
+      >
+        {#snippet text()}
+          REALLY delete?
+        {/snippet}
+      </Button>
+    </div>
+  {/if}
 </div>

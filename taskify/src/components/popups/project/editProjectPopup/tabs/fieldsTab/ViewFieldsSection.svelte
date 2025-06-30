@@ -9,7 +9,6 @@
   import Button from "@ui/Button.svelte";
   import Icon from "@ui/Icon.svelte";
 
-  // biome-ignore lint/style/useConst: These are props and work like this
   let {
     project = $bindable(),
     currentCustomField = $bindable(),

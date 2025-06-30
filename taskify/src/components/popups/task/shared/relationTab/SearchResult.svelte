@@ -10,7 +10,6 @@
   import Icon from "@ui/Icon.svelte";
   import InfoScreen from "./InfoScreen.svelte";
 
-  // biome-ignore lint/style/useConst: These are props and work like this
   let {
     currentProject,
     currentTab = $bindable(),
@@ -29,7 +28,6 @@
     onClick: (e: MouseEvent) => void;
   } = $props();
 
-  // biome-ignore lint/style/useConst: <explanation>
   let showInfoScreen = $state(false);
 </script>
 

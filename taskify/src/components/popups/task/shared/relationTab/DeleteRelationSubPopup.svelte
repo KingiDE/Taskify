@@ -5,8 +5,8 @@
   import Button from "@ui/Button.svelte";
   import Icon from "@ui/Icon.svelte";
   import Popup from "../../../../Popup.svelte";
+  import { fade } from "svelte/transition";
 
-  // biome-ignore lint/style/useConst: These are props and work like this
   let {
     task = $bindable(),
     showDeletePopup = $bindable(),
@@ -14,6 +14,8 @@
     task: Omit<LocalProjectTask, "id">;
     showDeletePopup: string | null;
   } = $props();
+
+  let hasTriedToDelete = $state(false);
 </script>
 
 <Popup bind:popup={showDeletePopup} maxWidth="max-w-[450px]">
@@ -27,16 +29,13 @@
         read this carefully. This process is not reversible!
       </div>
       <div class="mt-4"><strong>Really</strong> delete this relation:</div>
-      <div class="mt-1 flex gap-2">
+      <div class="mt-1 flex gap-4">
         <Button
           extraCSS="py-2 px-4"
           extraRules={["no-padding"]}
           meaning="negative"
           onClick={() => {
-            task.childTasks = task.childTasks.filter(
-              (id) => id !== showDeletePopup,
-            );
-            showDeletePopup = null;
+            hasTriedToDelete = true;
           }}
         >
           {#snippet icon()}
@@ -46,6 +45,24 @@
             Delete relation
           {/snippet}
         </Button>
+        {#if hasTriedToDelete}
+          <div transition:fade={{ duration: 100 }}>
+            <Button
+              onClick={() => {
+                task.childTasks = task.childTasks.filter(
+                  (id) => id !== showDeletePopup,
+                );
+                showDeletePopup = null;
+              }}
+              meaning="negative"
+              extraCSS="px-4"
+            >
+              {#snippet text()}
+                REALLY delete?
+              {/snippet}
+            </Button>
+          </div>
+        {/if}
       </div>
     </div>
   {/snippet}

@@ -6,7 +6,6 @@
 	import Input from "@ui/Input.svelte";
 	import SelectSection from "./SelectSection.svelte";
 
-	// biome-ignore lint/style/useConst: These are props and work like this
 	let {
 		task = $bindable(),
 		currentProject,

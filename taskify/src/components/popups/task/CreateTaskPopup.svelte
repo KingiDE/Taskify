@@ -99,7 +99,7 @@
   <Button
     meaning="positive"
     onClick={createTask}
-    extraCSS="h-10"
+    extraCSS="h-10 shrink-0"
     disabled={invalidInputs}
   >
     {#snippet text()}

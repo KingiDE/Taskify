@@ -53,7 +53,7 @@
 	>
 		<TableHead {currentProject} />
 		<tbody>
-			{#each preferencesAppliedTasks as task, index}
+			{#each preferencesAppliedTasks as task}
 				{#if task === null}
 					<SpacingTableRow {currentProject} />
 				{:else}

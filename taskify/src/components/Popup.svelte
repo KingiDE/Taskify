@@ -3,14 +3,12 @@
   import Button from "./ui/Button.svelte";
   import Icon from "./ui/Icon.svelte";
 
-  // biome-ignore lint/style/useConst: These are props and work like this
   let {
     popup = $bindable(),
     innerPopup,
     onClose,
     maxWidth,
   }: {
-    // biome-ignore lint/suspicious/noExplicitAny: should work for every element that can be rendered
     innerPopup: () => any;
     popup: string | null;
     onClose?: () => void;

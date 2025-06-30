@@ -34,16 +34,14 @@ export function doCustomFieldsFilterMatch(
 
 		// If the operator is "equals", the stored value and passed filterValue must match.
 		if (operator === "equals") {
-			// Leaving out triple equals because the input string should match stored numbers.
-			// biome-ignore lint/suspicious/noDoubleEquals: <explanation>
+			// biome-ignore lint/suspicious/noDoubleEquals: Leaving out triple equals because the input string should match stored numbers
 			if (taskFilterValue.value != filterValue) atLeastOneMismatch = true;
 			return;
 		}
 
 		// If the operator is "not_equals", the stored value and passed filterValue mustn't match.
 		if (operator === "not_equals") {
-			// Leaving out triple equals because the input string should match stored numbers.
-			// biome-ignore lint/suspicious/noDoubleEquals: <explanation>
+			// biome-ignore lint/suspicious/noDoubleEquals: Leaving out triple equals because the input string should match stored numbers
 			if (taskFilterValue.value == filterValue) atLeastOneMismatch = true;
 			return;
 		}

@@ -1,7 +1,6 @@
 <!-- The component to create consistent icon all over the app. -->
 
 <script lang="ts">
-	// biome-ignore lint/style/useImportType: icons is also used as a value as svelte check states: "Error: 'icons' cannot be used as a value because it was imported using 'import type'. (ts)"
 	import { icons } from "./icons";
 
 	const {

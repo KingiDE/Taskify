@@ -19,7 +19,6 @@
     };
   } = $props();
 
-  // biome-ignore lint/style/useConst: <explanation>
   let showOptions = $state(false);
 
   // The possible current value that is stored in the task for this custom field

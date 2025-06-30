@@ -9,7 +9,6 @@
 	import NoProjectSelected from "./NoProjectSelected.svelte";
 	import ProjectOverview from "./projectOverview/ProjectOverview.svelte";
 
-	// biome-ignore lint/style/useConst: These are props and work like this
 	let {
 		currentProject,
 		popup = $bindable(),

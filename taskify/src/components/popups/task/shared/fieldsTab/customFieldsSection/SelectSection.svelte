@@ -41,7 +41,6 @@
     }
   });
 
-  // biome-ignore lint/style/useConst: <explanation>
   let showOptions = $state(false);
 
   function changeSelectedOptionTo(option: string) {

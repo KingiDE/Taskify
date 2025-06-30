@@ -11,7 +11,6 @@
   import { filterTasksBySearchQuery } from "src/utils/searchHandler/searchHandler";
   import SearchResult from "./SearchResult.svelte";
 
-  // biome-ignore lint/style/useConst: These are props and work like this
   let {
     switchToTask,
     currentProject,
@@ -26,7 +25,6 @@
     searchbar: HTMLInputElement | null;
   } = $props();
 
-  // biome-ignore lint/style/useConst: <explanation>
   let searchQuery = $state("");
 
   const searchResults = $derived.by(() => {
@@ -50,8 +48,6 @@
       currentProject.customFields,
     );
   });
-
-  $inspect(searchResults);
 </script>
 
 <div class="mt-2 min-h-[375px]">
