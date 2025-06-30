@@ -48,11 +48,7 @@
   </Button>
   {#if hasTriedToDelete}
     <div transition:fade={{ duration: 100 }}>
-      <Button
-        onClick={deleteCurrentSelectedProject}
-        meaning="negative"
-        extraCSS="mt-2 px-4"
-      >
+      <Button onClick={deleteProject} meaning="negative" extraCSS="px-4">
         {#snippet text()}
           REALLY delete?
         {/snippet}

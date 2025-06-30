@@ -48,8 +48,6 @@
       currentProject.customFields,
     );
   });
-
-  $inspect(searchResults);
 </script>
 
 <div class="mt-2 min-h-[375px]">

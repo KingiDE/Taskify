@@ -6,8 +6,14 @@ import type {
 export function sortTasksByProjectSettings(
 	property: string,
 	direction: LocalProjectSortDirection,
-	tasks: Record<string | number, LocalProjectTask[]>,
+	oldTasks: Record<string | number, LocalProjectTask[]>,
 ) {
+	const tasks: Record<string | number, LocalProjectTask[]> = {};
+
+	Object.keys(oldTasks).map((el) => {
+		tasks[el] = [...(oldTasks[el] as LocalProjectTask[])];
+	});
+
 	function doesNeedSwap(a: LocalProjectTask, b: LocalProjectTask) {
 		if (direction === "ascending") {
 			if (property === "title" || property === "description") {

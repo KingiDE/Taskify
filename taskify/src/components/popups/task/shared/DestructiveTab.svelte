@@ -32,8 +32,7 @@ on a rendered task in the table. -->
     extraRules={["no-padding"]}
     meaning="negative"
     onClick={() => {
-      deleteTaskWithCurrentId();
-      popup = null;
+      hasTriedToDelete = true;
     }}
   >
     {#snippet icon()}
@@ -46,9 +45,12 @@ on a rendered task in the table. -->
   {#if hasTriedToDelete}
     <div transition:fade={{ duration: 100 }}>
       <Button
-        onClick={deleteTaskWithCurrentId}
+        onClick={() => {
+          deleteTaskWithCurrentId();
+          popup = null;
+        }}
         meaning="negative"
-        extraCSS="mt-2 px-4"
+        extraCSS="px-4"
       >
         {#snippet text()}
           REALLY delete?

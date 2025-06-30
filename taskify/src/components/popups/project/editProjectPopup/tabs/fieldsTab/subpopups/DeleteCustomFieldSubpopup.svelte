@@ -8,6 +8,7 @@
   } from "@components/types";
   import Button from "@ui/Button.svelte";
   import Icon from "@ui/Icon.svelte";
+  import { fade } from "svelte/transition";
 
   let {
     project = $bindable(),
@@ -18,6 +19,8 @@
     currentCustomField: LocalProjectCustomField | null;
     subpopup: PossibleEditProjectFieldsSubpopups;
   } = $props();
+
+  let hasTriedToDelete = $state(false);
 
   function deleteCustomField() {
     project.customFields = project.customFields.filter(
@@ -46,12 +49,14 @@
     this carefully. This process is not reversible!
   </div>
   <div class="mt-4">Delete this custom field:</div>
-  <div class="mt-1 flex gap-2">
+  <div class="mt-1 flex gap-4">
     <Button
       extraCSS="py-2 px-4"
       extraRules={["no-padding"]}
       meaning="negative"
-      onClick={deleteCustomField}
+      onClick={() => {
+        hasTriedToDelete = true;
+      }}
     >
       {#snippet icon()}
         <Icon height={24} width={24} name="delete" variant="rounded" />
@@ -60,5 +65,14 @@
         Delete custom field
       {/snippet}
     </Button>
+    {#if hasTriedToDelete}
+      <div transition:fade={{ duration: 100 }}>
+        <Button onClick={deleteCustomField} meaning="negative" extraCSS="px-4">
+          {#snippet text()}
+            REALLY delete?
+          {/snippet}
+        </Button>
+      </div>
+    {/if}
   </div>
 </div>
