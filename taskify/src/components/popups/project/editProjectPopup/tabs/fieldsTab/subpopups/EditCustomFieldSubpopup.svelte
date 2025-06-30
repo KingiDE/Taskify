@@ -56,7 +56,7 @@
       )}
       extraCSS="mt-1"
     >
-      {#snippet elements(_widthOfSingleElement)}
+      {#snippet elements()}
         <VariantBtn
           text="Number"
           variant="number"

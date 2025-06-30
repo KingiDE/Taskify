@@ -2,12 +2,6 @@
 The button-component has consistent styles over all three variants and can be further customized by adding extra rules and styles.  -->
 
 <script lang="ts">
-	export type ButtonExtraRules =
-		| "no-padding"
-		| "no-bg"
-		| "no-outline"
-		| "overflow-visible";
-
 	type Props = {
 		text?: () => any;
 		icon?: () => any;
@@ -16,7 +10,9 @@ The button-component has consistent styles over all three variants and can be fu
 		onClick: (e: MouseEvent) => void;
 		extraCSS?: string;
 		style?: string;
-		extraRules?: Array<ButtonExtraRules>;
+		extraRules?: Array<
+			"no-padding" | "no-bg" | "no-outline" | "overflow-visible"
+		>;
 		disabled?: boolean;
 		id?: string;
 		onMouseEnter?: (e: MouseEvent) => void;
@@ -47,7 +43,7 @@ The button-component has consistent styles over all three variants and can be fu
 			case "positive":
 				return `${extraRules?.includes("no-bg") ? "" : `bg-sky-500 ${disabled ? "" : "hover:bg-sky-400"}`}`;
 			case "neutral":
-				return `${extraRules?.includes("no-bg") ? "" : `${isHighlighted ? "bg-gray-500" : "bg-gray-800"}  ${disabled ? "" : "hover:bg-gray-500"}`} ${extraRules?.includes("no-outline") ? "-outline-offset-1 outline-1" : "-outline-offset-1 outline-1 outline-gray-500"}`;
+				return `${extraRules?.includes("no-bg") ? "" : `${isHighlighted ? "bg-gray-500" : "bg-gray-800"}  ${disabled ? "" : "hover:bg-gray-500"}`} ${extraRules?.includes("no-outline") ? "" : "-outline-offset-1 outline-1 outline-gray-500"}`;
 			case "discrete-neutral":
 				return "";
 		}
