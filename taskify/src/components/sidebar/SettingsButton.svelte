@@ -18,7 +18,7 @@
   onClick={() => {
     popup = "settings";
   }}
-  extraCSS="mt-auto"
+  extraCSS="mt-2 shrink-0"
 >
   {#snippet icon()}
     <Icon

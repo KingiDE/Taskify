@@ -36,12 +36,28 @@
   }
 
   const invalidInputs = $derived.by(getInvalidInputs);
+
+  function createTask() {
+    if (!invalidInputs) {
+      addTask(currentProject, invalidInputs, addTaskToProject);
+      hidePopup();
+    }
+  }
 </script>
 
-<div class="w-full flex flex-col gap-4 max-h-[700px] h-[calc(100dvh_-_48px)]">
+<div
+  class="w-full flex flex-col gap-4 max-h-[700px] h-[calc(100dvh_-_48px)]"
+  onkeydown={(e) => {
+    if (e.key === "Enter") {
+      createTask();
+    }
+  }}
+  role="button"
+  tabindex={0}
+>
   <h1 class="font-poppins font-bold text-2xl">Create task</h1>
   <div
-    class="grid min-[700px]:grid-cols-[250px_auto] gap-8 mb-auto overflow-y-hidden"
+    class="grid min-[700px]:grid-cols-[250px_auto] gap-8 mb-auto overflow-y-hidden h-full"
   >
     <nav class="grid gap-2 content-start">
       <NavbarIcon
@@ -82,10 +98,7 @@
   </div>
   <Button
     meaning="positive"
-    onClick={() => {
-      addTask(currentProject, invalidInputs, addTaskToProject);
-      hidePopup();
-    }}
+    onClick={createTask}
     extraCSS="h-10"
     disabled={invalidInputs}
   >

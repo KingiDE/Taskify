@@ -34,39 +34,50 @@
 	});
 
 	function createProject() {
-		addNewProject({
-			id: Date.now().toString(),
-			name: createProjectInput.name,
-			description: createProjectInput.description,
-			accentColor: createProjectInput.accentColor,
-			icon: createProjectInput.icon,
-			tasks: createProjectInput.tasks,
-			enabledFields: createProjectInput.enabledFields,
-			customFields: createProjectInput.customFields,
-			searchQuery: createProjectInput.searchQuery,
-			sortedBy: createProjectInput.sortedBy,
-			groupedBy: createProjectInput.groupedBy,
-			sortDirection: createProjectInput.sortDirection,
-		});
+		if (!invalidInputs) {
+			addNewProject({
+				id: Date.now().toString(),
+				name: createProjectInput.name,
+				description: createProjectInput.description,
+				accentColor: createProjectInput.accentColor,
+				icon: createProjectInput.icon,
+				tasks: createProjectInput.tasks,
+				enabledFields: createProjectInput.enabledFields,
+				customFields: createProjectInput.customFields,
+				searchQuery: createProjectInput.searchQuery,
+				sortedBy: createProjectInput.sortedBy,
+				groupedBy: createProjectInput.groupedBy,
+				sortDirection: createProjectInput.sortDirection,
+			});
 
-		createProjectInput = {
-			name: "",
-			description: "",
-			accentColor: null,
-			icon: "idea",
-			tasks: [],
-			enabledFields: ["difficulty", "size"],
-			customFields: [],
-			searchQuery: "",
-			sortedBy: "title",
-			groupedBy: null,
-			sortDirection: "ascending",
-		};
-		popup = null;
+			createProjectInput = {
+				name: "",
+				description: "",
+				accentColor: null,
+				icon: "idea",
+				tasks: [],
+				enabledFields: ["difficulty", "size"],
+				customFields: [],
+				searchQuery: "",
+				sortedBy: "title",
+				groupedBy: null,
+				sortDirection: "ascending",
+			};
+			popup = null;
+		}
 	}
 </script>
 
-<div class="max-w-[575px] flex flex-col max-h-[700px] h-[calc(100dvh_-_48px)]">
+<div
+	class="max-w-[575px] flex flex-col max-h-[700px] h-[calc(100dvh_-_48px)]"
+	onkeydown={(e) => {
+		if (e.key === "Enter") {
+			createProject();
+		}
+	}}
+	role="button"
+	tabindex={0}
+>
 	<h1 class="font-poppins font-bold text-2xl">Create new project</h1>
 	<div class="mt-2 overflow-y-scroll pr-1.5">
 		<FormSection bind:project={createProjectInput} />

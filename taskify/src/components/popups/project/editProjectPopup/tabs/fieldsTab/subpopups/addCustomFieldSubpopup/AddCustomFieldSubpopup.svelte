@@ -32,12 +32,28 @@
   });
 
   const invalidInputs = $derived.by(getInvalidInputs);
+
+  function createCustomField() {
+    if (!invalidInputs) {
+      addCustomFieldToProject(project);
+      subpopup = null;
+    }
+  }
 </script>
 
 <h1 class="font-poppins font-bold text-2xl justify-self-start">
   Create custom field
 </h1>
-<div class="mt-1 rounded-md grid gap-2">
+<div
+  class="mt-1 rounded-md grid gap-2"
+  onkeydown={(e) => {
+    if (e.key === "Enter") {
+      createCustomField();
+    }
+  }}
+  role="button"
+  tabindex={0}
+>
   <Input
     label="Custom field name:"
     placeholder="Priority"
@@ -96,10 +112,7 @@
   <Button
     extraCSS="mt-2"
     meaning="positive"
-    onClick={() => {
-      addCustomFieldToProject(project);
-      subpopup = null;
-    }}
+    onClick={createCustomField}
     disabled={invalidInputs}
   >
     {#snippet text()}

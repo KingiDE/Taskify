@@ -29,7 +29,7 @@
 >
   <Heading {toggleIsSidebarExpanded} {isSidebarExpanded} />
   <WantToAddButton {isSidebarExpanded} bind:popup />
-  <div class="mt-2 grid gap-2 grid-flow-row">
+  <div class="mt-2 mb-auto grid gap-2 grid-flow-row overflow-y-scroll pr-0">
     {#each projects as item}
       <ProjectIcon
         id={item.id}

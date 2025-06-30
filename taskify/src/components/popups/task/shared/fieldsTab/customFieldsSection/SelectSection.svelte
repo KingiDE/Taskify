@@ -78,7 +78,7 @@
   {#if showOptions}
     <div
       transition:fade={{ duration: 100 }}
-      class="z-10 bg-gray-800 rounded-md outline-1 outline-gray-500 grid p-1 absolute top-[calc(100%_+_8px)] left-0.5"
+      class="z-10 bg-gray-800 rounded-md outline-1 outline-gray-500 grid p-1 absolute top-[calc(100%_+_8px)] left-0.5 -outline-offset-1"
     >
       {#if customField.options.length === 0}
         <div class="py-1 px-2">There don't exist any options.</div>
