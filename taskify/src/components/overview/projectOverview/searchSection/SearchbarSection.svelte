@@ -4,7 +4,6 @@
 	import Input from "@ui/Input.svelte";
 	import { onMount } from "svelte";
 
-	// biome-ignore lint/style/useConst: These are props and work like this
 	let {
 		popup,
 		searchQuery = $bindable(),
@@ -15,7 +14,6 @@
 		hideAnySubpopup: () => void;
 	} = $props();
 
-	// biome-ignore lint/style/useConst: <explanation>
 	let searchbar = $state<HTMLInputElement | null>(null);
 
 	onMount(() => {

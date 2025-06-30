@@ -14,17 +14,14 @@
   import EditCustomFieldSubpopup from "./subpopups/EditCustomFieldSubpopup.svelte";
   import AddCustomFieldSection from "./subpopups/addCustomFieldSubpopup/AddCustomFieldSubpopup.svelte";
 
-  // biome-ignore lint/style/useConst: These are props and work like this
   let {
     project = $bindable(),
   }: {
     project: LocalProject;
   } = $props();
 
-  // biome-ignore lint/style/useConst: <explanation>
   let subpopup = $state<PossibleEditProjectFieldsSubpopups>(null);
 
-  // biome-ignore lint/style/useConst: <explanation>
   let currentCustomField = $state<LocalProjectCustomField | null>(null);
 </script>
 

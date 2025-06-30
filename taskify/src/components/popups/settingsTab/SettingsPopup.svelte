@@ -11,7 +11,6 @@
     projects: Array<LocalProject>;
   } = $props();
 
-  // biome-ignore lint/style/useConst: <explanation>
   let currentTab = $state<"hotkeys" | "search" | "export">("hotkeys");
 </script>
 

@@ -3,7 +3,6 @@
 <script lang="ts">
   import Button from "@ui/Button.svelte";
 
-  // biome-ignore lint/style/useConst: These are props and work like this
   let {
     inputVariant = $bindable(),
     text,

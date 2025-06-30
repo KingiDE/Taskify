@@ -8,7 +8,6 @@
   import { firstCapital } from "src/utils/stringUtils";
   import { fade } from "svelte/transition";
 
-  // biome-ignore lint/style/useConst: These are props and work like this
   let {
     customFields,
     valueToUpdate = $bindable(),

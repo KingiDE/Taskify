@@ -18,7 +18,6 @@
   } from "@hooks/customFields/useAddCustomField.svelte";
   import Slider from "@ui/Slider.svelte";
 
-  // biome-ignore lint/style/useConst: These are props and work like this
   let {
     project = $bindable(),
     subpopup = $bindable(),

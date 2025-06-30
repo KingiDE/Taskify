@@ -4,7 +4,6 @@
 	import type { LocalProject } from "@components/types";
 	import AccentColorButton from "./AccentColorButton.svelte";
 
-	// biome-ignore lint/style/useConst: These are props and work like this
 	let {
 		project = $bindable(),
 	}: {

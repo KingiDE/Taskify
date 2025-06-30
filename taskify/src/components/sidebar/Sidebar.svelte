@@ -7,7 +7,6 @@
   import SettingsButton from "./SettingsButton.svelte";
   import WantToAddButton from "./WantToAddProjectButton.svelte";
 
-  // biome-ignore lint/style/useConst: These are props and work like this
   let {
     isSidebarExpanded,
     toggleIsSidebarExpanded,

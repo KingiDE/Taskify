@@ -11,7 +11,6 @@
     task: LocalProjectTask;
   } = $props();
 
-  // biome-ignore lint/style/useConst: <explanation>
   let showOptions = $state(false);
 
   function mapStateToPrettyValue() {

@@ -11,7 +11,6 @@
 	import ExistingTasksSection from "./ExistingTasksSection.svelte";
 	import SearchTasksSection from "./SearchTasksSection.svelte";
 
-	// biome-ignore lint/style/useConst: These are props and work like this
 	let {
 		switchToTask,
 		currentProject,
@@ -30,7 +29,6 @@
 		showDeletePopup = relatedTaskId;
 	}
 
-	// biome-ignore lint/style/useConst: <explanation>
 	let searchbar = $state<HTMLInputElement | null>(null);
 
 	onMount(() => {

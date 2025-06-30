@@ -6,7 +6,6 @@
   import Icon from "@ui/Icon.svelte";
   import Popup from "../../../../Popup.svelte";
 
-  // biome-ignore lint/style/useConst: These are props and work like this
   let {
     task = $bindable(),
     showDeletePopup = $bindable(),

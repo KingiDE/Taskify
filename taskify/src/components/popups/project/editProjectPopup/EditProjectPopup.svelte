@@ -11,7 +11,6 @@
   import EditAppearanceTab from "./tabs/EditAppearanceTab.svelte";
   import FieldsTab from "./tabs/fieldsTab/FieldsTab.svelte";
 
-  // biome-ignore lint/style/useConst: These are props and work like this
   let {
     currentProject = $bindable(),
     popup = $bindable(),
@@ -22,7 +21,6 @@
     deleteCurrentSelectedProject: () => void;
   } = $props();
 
-  // biome-ignore lint/style/useConst: <explanation>
   let currentTab = $state<PossibleEditProjectPopupTabs>("appearance");
 </script>
 

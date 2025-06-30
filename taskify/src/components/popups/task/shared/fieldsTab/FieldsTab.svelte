@@ -6,7 +6,6 @@
 	import SizeSection from "./SizeSection.svelte";
 	import CustomFieldsSection from "./customFieldsSection/CustomFieldsSection.svelte";
 
-	// biome-ignore lint/style/useConst: These are props and work like this
 	let {
 		task = $bindable(),
 		currentProject,

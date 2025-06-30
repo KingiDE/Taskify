@@ -4,6 +4,7 @@
   import type { PossiblePopups } from "@components/types";
   import Button from "@ui/Button.svelte";
   import Icon from "@ui/Icon.svelte";
+  import { fade } from "svelte/transition";
 
   let {
     popup = $bindable(),
@@ -12,6 +13,8 @@
     popup: PossiblePopups;
     deleteCurrentSelectedProject: () => void;
   } = $props();
+
+  let hasTriedToDelete = $state(false);
 
   function deleteProject() {
     deleteCurrentSelectedProject();
@@ -27,12 +30,14 @@
   carefully. This process is not reversible!
 </div>
 <div class="mt-4">Delete this project:</div>
-<div class="mt-1 flex gap-2">
+<div class="mt-1 flex gap-4">
   <Button
     extraCSS="py-2 px-4"
     extraRules={["no-padding"]}
     meaning="negative"
-    onClick={deleteProject}
+    onClick={() => {
+      hasTriedToDelete = true;
+    }}
   >
     {#snippet icon()}
       <Icon height={24} width={24} name="delete" variant="rounded" />
@@ -41,4 +46,17 @@
       Delete project
     {/snippet}
   </Button>
+  {#if hasTriedToDelete}
+    <div transition:fade={{ duration: 100 }}>
+      <Button
+        onClick={deleteCurrentSelectedProject}
+        meaning="negative"
+        extraCSS="mt-2 px-4"
+      >
+        {#snippet text()}
+          REALLY delete?
+        {/snippet}
+      </Button>
+    </div>
+  {/if}
 </div>

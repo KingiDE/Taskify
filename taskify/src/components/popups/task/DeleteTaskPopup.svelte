@@ -4,7 +4,6 @@
 	import type { PossiblePopups } from "@components/types";
 	import DestructiveTab from "./shared/DestructiveTab.svelte";
 
-	// biome-ignore lint/style/useConst: These are props and work like this
 	let {
 		deleteTaskWithCurrentId,
 		popup = $bindable(),

@@ -13,7 +13,6 @@
   import FieldsTab from "./shared/fieldsTab/FieldsTab.svelte";
   import RelationTab from "./shared/relationTab/RelationTab.svelte";
 
-  // biome-ignore lint/style/useConst: These are props and work like this
   let {
     popup = $bindable(),
     currentTask,
@@ -28,7 +27,6 @@
     switchToTask: (task: LocalProjectTask) => void;
   } = $props();
 
-  // biome-ignore lint/style/useConst: <explanation>
   let currentTab = $state<PossibleEditTaskPopupTabs>("appearance");
 </script>
 

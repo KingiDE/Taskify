@@ -10,7 +10,6 @@
   import { firstCapital } from "src/utils/stringUtils";
   import ListOfAllFields from "./ListOfAllFields.svelte";
 
-  // biome-ignore lint/style/useConst: These are props and work like this
   let {
     subpopup = $bindable(),
     sortedBy = $bindable(),

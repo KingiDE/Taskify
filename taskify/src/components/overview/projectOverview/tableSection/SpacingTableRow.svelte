@@ -1,7 +1,6 @@
 <script lang="ts">
   import type { LocalProject } from "@components/types";
 
-  // biome-ignore lint/style/useConst: These are props and work like this
   let {
     currentProject,
   }: {
