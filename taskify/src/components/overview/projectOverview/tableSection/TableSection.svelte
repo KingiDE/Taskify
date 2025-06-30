@@ -16,12 +16,14 @@
 		wantToDeleteTask,
 		currentTask = $bindable(),
 		popup = $bindable(),
+		moreSpaceForOtherElementRequired,
 	}: {
 		currentProject: LocalProject;
 		preferencesAppliedTasks: Array<LocalProjectTask | null>;
 		wantToDeleteTask: () => void;
 		currentTask: LocalProjectTask | null;
 		popup: PossiblePopups;
+		moreSpaceForOtherElementRequired: boolean;
 	} = $props();
 
 	function selectCurrentTask(task: LocalProjectTask) {
@@ -46,7 +48,10 @@
 	}
 </script>
 
-<div class="overflow-x-scroll pb-1 pr-1.5 h-[calc(100%_-_216px)]">
+<div
+	class="overflow-x-scroll pb-1 pr-1.5"
+	style={`height: calc(100% - ${moreSpaceForOtherElementRequired ? "248px" : "216px"});`}
+>
 	<table
 		class={`pretty mt-2 w-full`}
 		style={`max-width: ${getMaxWithFromCountOfCustomFields()};`}
