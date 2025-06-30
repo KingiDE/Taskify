@@ -1,15 +1,15 @@
 <!-- This component lets you open the add-task popup. -->
 
 <script lang="ts">
-import Button from "@ui/Button.svelte";
-import Icon from "@ui/Icon.svelte";
+  import Button from "@ui/Button.svelte";
+  import Icon from "@ui/Icon.svelte";
 
-// biome-ignore lint/style/useConst: These are props and work like this
-let {
-	wantToAddTask,
-}: {
-	wantToAddTask: () => void;
-} = $props();
+  // biome-ignore lint/style/useConst: These are props and work like this
+  let {
+    wantToAddTask,
+  }: {
+    wantToAddTask: () => void;
+  } = $props();
 </script>
 
 <Button

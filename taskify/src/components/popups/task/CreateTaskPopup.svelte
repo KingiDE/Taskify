@@ -1,41 +1,41 @@
 <!-- The component that is shown when you want to create a new task. -->
 
 <script lang="ts">
-import type {
-	LocalProject,
-	LocalProjectTask,
-	PossiblePopups,
-} from "@components/types";
-import Button from "@ui/Button.svelte";
-import NavbarIcon from "../NavbarIcon.svelte";
-import AppearenceTab from "../task/shared/appearenceTab/AppearenceTab.svelte";
-import RelationTab from "../task/shared/relationTab/RelationTab.svelte";
-import FieldsTab from "./shared/fieldsTab/FieldsTab.svelte";
+  import type {
+    LocalProject,
+    LocalProjectTask,
+    PossiblePopups,
+  } from "@components/types";
+  import Button from "@ui/Button.svelte";
+  import NavbarIcon from "../NavbarIcon.svelte";
+  import AppearanceTab from "../task/shared/appearanceTab/AppearanceTab.svelte";
+  import RelationTab from "../task/shared/relationTab/RelationTab.svelte";
+  import FieldsTab from "./shared/fieldsTab/FieldsTab.svelte";
 
-let {
-	currentProject,
-	popup = $bindable(),
-	addTaskToProject,
-	switchToTask,
-}: {
-	currentProject: LocalProject;
-	popup: PossiblePopups;
-	addTaskToProject: (inputs: LocalProjectTask) => void;
-	switchToTask: (task: LocalProjectTask) => void;
-} = $props();
+  let {
+    currentProject,
+    popup = $bindable(),
+    addTaskToProject,
+    switchToTask,
+  }: {
+    currentProject: LocalProject;
+    popup: PossiblePopups;
+    addTaskToProject: (inputs: LocalProjectTask) => void;
+    switchToTask: (task: LocalProjectTask) => void;
+  } = $props();
 
-import {
-	addTask,
-	addTaskInput,
-	currentTab,
-	getInvalidInputs,
-} from "@hooks/useCreateTaskPopup.svelte";
+  import {
+    addTask,
+    addTaskInput,
+    currentTab,
+    getInvalidInputs,
+  } from "@hooks/useCreateTaskPopup.svelte";
 
-function hidePopup() {
-	popup = null;
-}
+  function hidePopup() {
+    popup = null;
+  }
 
-const invalidInputs = $derived.by(getInvalidInputs);
+  const invalidInputs = $derived.by(getInvalidInputs);
 </script>
 
 <div class="w-full flex flex-col gap-4 max-h-[700px] h-[calc(100dvh_-_48px)]">
@@ -45,9 +45,9 @@ const invalidInputs = $derived.by(getInvalidInputs);
   >
     <nav class="grid gap-2 content-start">
       <NavbarIcon
-        buttonText="Appearence"
+        buttonText="Appearance"
         iconName="edit"
-        tabValue="appearence"
+        tabValue="appearance"
         bind:currentTab={currentTab.value}
       />
       <NavbarIcon
@@ -64,8 +64,8 @@ const invalidInputs = $derived.by(getInvalidInputs);
       />
     </nav>
     <div class="overflow-y-scroll pr-1.5">
-      {#if currentTab.value === "appearence"}
-        <AppearenceTab bind:task={addTaskInput.value} />
+      {#if currentTab.value === "appearance"}
+        <AppearanceTab bind:task={addTaskInput.value} />
       {/if}
       {#if currentTab.value === "fields"}
         <FieldsTab bind:task={addTaskInput.value} {currentProject} />

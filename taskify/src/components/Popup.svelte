@@ -1,21 +1,21 @@
 <script lang="ts">
-import { fade } from "svelte/transition";
-import Button from "./ui/Button.svelte";
-import Icon from "./ui/Icon.svelte";
+  import { fade } from "svelte/transition";
+  import Button from "./ui/Button.svelte";
+  import Icon from "./ui/Icon.svelte";
 
-// biome-ignore lint/style/useConst: These are props and work like this
-let {
-	popup = $bindable(),
-	innerPopup,
-	onClose,
-	maxWidth,
-}: {
-	// biome-ignore lint/suspicious/noExplicitAny: should work for every element that can be rendered
-	innerPopup: () => any;
-	popup: string | null;
-	onClose?: () => void;
-	maxWidth: string;
-} = $props();
+  // biome-ignore lint/style/useConst: These are props and work like this
+  let {
+    popup = $bindable(),
+    innerPopup,
+    onClose,
+    maxWidth,
+  }: {
+    // biome-ignore lint/suspicious/noExplicitAny: should work for every element that can be rendered
+    innerPopup: () => any;
+    popup: string | null;
+    onClose?: () => void;
+    maxWidth: string;
+  } = $props();
 </script>
 
 <!-- A popup-template that is renderd as soon as the passed popup value isn't null.

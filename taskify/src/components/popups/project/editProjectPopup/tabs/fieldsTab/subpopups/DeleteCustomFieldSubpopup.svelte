@@ -1,39 +1,39 @@
 <!-- This subpoup lets you delete a existing custom field inside a project. -->
 
 <script lang="ts">
-import type {
-	LocalProject,
-	LocalProjectCustomField,
-	PossibleEditProjectFieldsSubpopups,
-} from "@components/types";
-import Button from "@ui/Button.svelte";
-import Icon from "@ui/Icon.svelte";
+  import type {
+    LocalProject,
+    LocalProjectCustomField,
+    PossibleEditProjectFieldsSubpopups,
+  } from "@components/types";
+  import Button from "@ui/Button.svelte";
+  import Icon from "@ui/Icon.svelte";
 
-let {
-	project = $bindable(),
-	currentCustomField = $bindable(),
-	subpopup = $bindable(),
-}: {
-	project: LocalProject;
-	currentCustomField: LocalProjectCustomField | null;
-	subpopup: PossibleEditProjectFieldsSubpopups;
-} = $props();
+  let {
+    project = $bindable(),
+    currentCustomField = $bindable(),
+    subpopup = $bindable(),
+  }: {
+    project: LocalProject;
+    currentCustomField: LocalProjectCustomField | null;
+    subpopup: PossibleEditProjectFieldsSubpopups;
+  } = $props();
 
-function deleteCustomField() {
-	project.customFields = project.customFields.filter(
-		(customField) => currentCustomField?.id !== customField.id,
-	);
+  function deleteCustomField() {
+    project.customFields = project.customFields.filter(
+      (customField) => currentCustomField?.id !== customField.id,
+    );
 
-	// Remove all stored values in tasks for this custom field
-	for (const task of project.tasks) {
-		task.customFields = task.customFields.filter(
-			(element) => element.id !== currentCustomField?.id,
-		);
-	}
+    // Remove all stored values in tasks for this custom field
+    for (const task of project.tasks) {
+      task.customFields = task.customFields.filter(
+        (element) => element.id !== currentCustomField?.id,
+      );
+    }
 
-	currentCustomField = null;
-	subpopup = null;
-}
+    currentCustomField = null;
+    subpopup = null;
+  }
 </script>
 
 <div class="max-w-[575px] grid">

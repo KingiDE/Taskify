@@ -1,15 +1,15 @@
 <!-- This component wraps the section to edit the title and description of a project. -->
 
 <script lang="ts">
-import type { LocalProject } from "@components/types";
-import Input from "@ui/Input.svelte";
-import Textarea from "@ui/Textarea.svelte";
+  import type { LocalProject } from "@components/types";
+  import Input from "@ui/Input.svelte";
+  import Textarea from "@ui/Textarea.svelte";
 
-const {
-	project = $bindable(),
-}: {
-	project: Omit<LocalProject, "id">;
-} = $props();
+  const {
+    project = $bindable(),
+  }: {
+    project: Omit<LocalProject, "id">;
+  } = $props();
 </script>
 
 <Input

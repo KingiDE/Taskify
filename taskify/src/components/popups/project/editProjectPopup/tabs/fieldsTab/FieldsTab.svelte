@@ -1,31 +1,31 @@
 <!-- This component wraps the components to edit all fields of a project. -->
 
 <script lang="ts">
-import Popup from "@components/Popup.svelte";
-import type {
-	LocalProject,
-	LocalProjectCustomField,
-	PossibleEditProjectFieldsSubpopups,
-} from "@components/types";
-import { resetAddCustomFieldInputs } from "@hooks/customFields/useAddCustomField.svelte";
-import EnableDisableSection from "./EnableDefaultFieldsSection.svelte";
-import ViewFieldsSection from "./ViewFieldsSection.svelte";
-import DeleteCustomFieldSubpopup from "./subpopups/DeleteCustomFieldSubpopup.svelte";
-import EditCustomFieldSubpopup from "./subpopups/EditCustomFieldSubpopup.svelte";
-import AddCustomFieldSection from "./subpopups/addCustomFieldSubpopup/AddCustomFieldSubpopup.svelte";
+  import Popup from "@components/Popup.svelte";
+  import type {
+    LocalProject,
+    LocalProjectCustomField,
+    PossibleEditProjectFieldsSubpopups,
+  } from "@components/types";
+  import { resetAddCustomFieldInputs } from "@hooks/customFields/useAddCustomField.svelte";
+  import EnableDisableSection from "./EnableDefaultFieldsSection.svelte";
+  import ViewFieldsSection from "./ViewFieldsSection.svelte";
+  import DeleteCustomFieldSubpopup from "./subpopups/DeleteCustomFieldSubpopup.svelte";
+  import EditCustomFieldSubpopup from "./subpopups/EditCustomFieldSubpopup.svelte";
+  import AddCustomFieldSection from "./subpopups/addCustomFieldSubpopup/AddCustomFieldSubpopup.svelte";
 
-// biome-ignore lint/style/useConst: These are props and work like this
-let {
-	project = $bindable(),
-}: {
-	project: LocalProject;
-} = $props();
+  // biome-ignore lint/style/useConst: These are props and work like this
+  let {
+    project = $bindable(),
+  }: {
+    project: LocalProject;
+  } = $props();
 
-// biome-ignore lint/style/useConst: <explanation>
-let subpopup = $state<PossibleEditProjectFieldsSubpopups>(null);
+  // biome-ignore lint/style/useConst: <explanation>
+  let subpopup = $state<PossibleEditProjectFieldsSubpopups>(null);
 
-// biome-ignore lint/style/useConst: <explanation>
-let currentCustomField = $state<LocalProjectCustomField | null>(null);
+  // biome-ignore lint/style/useConst: <explanation>
+  let currentCustomField = $state<LocalProjectCustomField | null>(null);
 </script>
 
 <Popup

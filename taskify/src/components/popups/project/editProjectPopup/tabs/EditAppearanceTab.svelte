@@ -1,4 +1,4 @@
-<!-- This component wraps the components to edit the appearence of a project. -->
+<!-- This component wraps the components to edit the appearance of a project. -->
 
 <script lang="ts">
 import type { LocalProject } from "@components/types";

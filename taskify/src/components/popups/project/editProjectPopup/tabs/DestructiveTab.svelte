@@ -1,22 +1,22 @@
 <!-- This component lets you delete a project. -->
 
 <script lang="ts">
-import type { PossiblePopups } from "@components/types";
-import Button from "@ui/Button.svelte";
-import Icon from "@ui/Icon.svelte";
+  import type { PossiblePopups } from "@components/types";
+  import Button from "@ui/Button.svelte";
+  import Icon from "@ui/Icon.svelte";
 
-let {
-	popup = $bindable(),
-	deleteCurrentSelectedProject,
-}: {
-	popup: PossiblePopups;
-	deleteCurrentSelectedProject: () => void;
-} = $props();
+  let {
+    popup = $bindable(),
+    deleteCurrentSelectedProject,
+  }: {
+    popup: PossiblePopups;
+    deleteCurrentSelectedProject: () => void;
+  } = $props();
 
-function deleteProject() {
-	deleteCurrentSelectedProject();
-	popup = null;
-}
+  function deleteProject() {
+    deleteCurrentSelectedProject();
+    popup = null;
+  }
 </script>
 
 <div

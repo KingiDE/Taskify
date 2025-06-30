@@ -1,13 +1,13 @@
 <script lang="ts">
-import type { LocalProject } from "@components/types";
-import Button from "@ui/Button.svelte";
-import Icon from "@ui/Icon.svelte";
+  import type { LocalProject } from "@components/types";
+  import Button from "@ui/Button.svelte";
+  import Icon from "@ui/Icon.svelte";
 
-const {
-	projects,
-}: {
-	projects: Array<LocalProject>;
-} = $props();
+  const {
+    projects,
+  }: {
+    projects: Array<LocalProject>;
+  } = $props();
 </script>
 
 <div>

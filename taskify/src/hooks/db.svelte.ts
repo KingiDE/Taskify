@@ -26,7 +26,7 @@ const openDatabase = (): Promise<IDBDatabase | null> => {
 };
 
 // Load all entries from the 'projects' table.
-// If something failed, the funtion returns an empty array,
+// If something failed, the function returns an empty array,
 export const loadProjects = async (): Promise<Array<LocalProject>> => {
 	try {
 		const db = await openDatabase();

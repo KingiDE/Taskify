@@ -1,18 +1,15 @@
 import type { LocalProjectCustomFieldInput } from "@components/types";
 
-// Returns the corresponding Talwind-class for the box that marks the active variant custom field
-export function getVariantBoxPosition(
-	variant: "number" | "text" | "checkbox" | "select",
-) {
-	switch (variant) {
-		case "number":
-			return "left-0";
-		case "text":
-			return "left-[104px]";
-		case "checkbox":
-			return "left-[208px]";
-		case "select":
-			return "left-[312px]";
+// Returns the corresponding index for the box that marks the active variant custom field
+export function getVariantBoxPosition(variant: "number" | "text" | "checkbox" | "select") {
+	if (variant === "number") {
+		return 0;
+	} else if (variant === "text") {
+		return 1;
+	} else if (variant === "checkbox") {
+		return 2;
+	} else {
+		return 3;
 	}
 }
 

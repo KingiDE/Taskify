@@ -1,81 +1,82 @@
 <!-- This component is the template for rendering the all variants of custom fields for a task. -->
 
 <script lang="ts">
-import type { LocalProject, LocalProjectTask } from "@components/types";
-import Checkbox from "@ui/Checkbox.svelte";
-import Input from "@ui/Input.svelte";
-import SelectSection from "./SelectSection.svelte";
+	import type { LocalProject, LocalProjectTask } from "@components/types";
+	import Checkbox from "@ui/Checkbox.svelte";
+	import Input from "@ui/Input.svelte";
+	import SelectSection from "./SelectSection.svelte";
 
-// biome-ignore lint/style/useConst: These are props and work like this
-let {
-	task = $bindable(),
-	currentProject,
-}: {
-	task: Omit<LocalProjectTask, "id">;
-	currentProject: LocalProject;
-} = $props();
+	// biome-ignore lint/style/useConst: These are props and work like this
+	let {
+		task = $bindable(),
+		currentProject,
+	}: {
+		task: Omit<LocalProjectTask, "id">;
+		currentProject: LocalProject;
+	} = $props();
 
-function getPossibleCustomField(id: string) {
-	return task.customFields.find((element) => element.id === id);
-}
-
-function storeCustomFieldStringValueInLocalState(
-	id: string,
-	value: string | number | null,
-	variant: "text" | "number" | "select",
-) {
-	const possibleExistingStoredElement = getPossibleCustomField(id);
-
-	if (possibleExistingStoredElement) {
-		possibleExistingStoredElement.value =
-			value === null ? "" : value.toString();
-	} else {
-		task.customFields.push({
-			id: id,
-			value: value === null ? "" : value.toString(),
-			variant,
-		});
+	function getPossibleCustomField(id: string) {
+		return task.customFields.find((element) => element.id === id);
 	}
-}
 
-function toggleCustomFieldBooleanValueInLocalState(id: string) {
-	const possibleExistingStoredElement = getPossibleCustomField(id);
+	function storeCustomFieldStringValueInLocalState(
+		id: string,
+		value: string | number | null,
+		variant: "text" | "number" | "select",
+	) {
+		const possibleExistingStoredElement = getPossibleCustomField(id);
 
-	if (possibleExistingStoredElement) {
-		possibleExistingStoredElement.value = !possibleExistingStoredElement.value;
-	} else {
-		task.customFields.push({
-			id: id,
-			value: true,
-			variant: "checkbox",
-		});
+		if (possibleExistingStoredElement) {
+			possibleExistingStoredElement.value =
+				value === null ? "" : value.toString();
+		} else {
+			task.customFields.push({
+				id: id,
+				value: value === null ? "" : value.toString(),
+				variant,
+			});
+		}
 	}
-}
 
-function getCustomFieldTextValue(id: string) {
-	const possibleExistingStoredElement = getPossibleCustomField(id);
+	function toggleCustomFieldBooleanValueInLocalState(id: string) {
+		const possibleExistingStoredElement = getPossibleCustomField(id);
 
-	if (
-		possibleExistingStoredElement &&
-		(possibleExistingStoredElement.variant === "text" ||
-			possibleExistingStoredElement.variant === "number")
-	)
-		return possibleExistingStoredElement.value;
+		if (possibleExistingStoredElement) {
+			possibleExistingStoredElement.value =
+				!possibleExistingStoredElement.value;
+		} else {
+			task.customFields.push({
+				id: id,
+				value: true,
+				variant: "checkbox",
+			});
+		}
+	}
 
-	return "";
-}
+	function getCustomFieldTextValue(id: string) {
+		const possibleExistingStoredElement = getPossibleCustomField(id);
 
-function getCustomFieldBooleanValue(id: string) {
-	const possibleExistingStoredElement = getPossibleCustomField(id);
+		if (
+			possibleExistingStoredElement &&
+			(possibleExistingStoredElement.variant === "text" ||
+				possibleExistingStoredElement.variant === "number")
+		)
+			return possibleExistingStoredElement.value;
 
-	if (
-		possibleExistingStoredElement &&
-		possibleExistingStoredElement.variant === "checkbox"
-	)
-		return possibleExistingStoredElement.value;
+		return "";
+	}
 
-	return false;
-}
+	function getCustomFieldBooleanValue(id: string) {
+		const possibleExistingStoredElement = getPossibleCustomField(id);
+
+		if (
+			possibleExistingStoredElement &&
+			possibleExistingStoredElement.variant === "checkbox"
+		)
+			return possibleExistingStoredElement.value;
+
+		return false;
+	}
 </script>
 
 {#each currentProject.customFields as customField}

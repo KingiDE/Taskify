@@ -1,48 +1,48 @@
 <!-- The component that shows the values of default-fields inside the relation-tab. -->
 
 <script lang="ts">
-import type { LocalProject, LocalProjectTask } from "@components/types";
-import { fade } from "svelte/transition";
+	import type { LocalProject, LocalProjectTask } from "@components/types";
+	import { fade } from "svelte/transition";
 
-const {
-	currentProject,
-	subtask,
-	showInfoScreen,
-}: {
-	currentProject: LocalProject;
-	subtask: LocalProjectTask;
-	showInfoScreen: boolean;
-} = $props();
+	const {
+		currentProject,
+		subtask,
+		showInfoScreen,
+	}: {
+		currentProject: LocalProject;
+		subtask: LocalProjectTask;
+		showInfoScreen: boolean;
+	} = $props();
 
-function mapSizeToPrettyValue(size: "small" | "medium" | "large") {
-	switch (size) {
-		case "small":
-			return "🟢 Small";
-		case "medium":
-			return "🟡 Medium";
-		case "large":
-			return "🔴 Large";
+	function mapSizeToPrettyValue(size: "small" | "medium" | "large") {
+		switch (size) {
+			case "small":
+				return "🟢 Small";
+			case "medium":
+				return "🟡 Medium";
+			case "large":
+				return "🔴 Large";
+		}
 	}
-}
 
-function mapDifficultyToPrettyValue(difficulty: "easy" | "medium" | "hard") {
-	switch (difficulty) {
-		case "easy":
-			return "🧨 Easy";
-		case "medium":
-			return "💣 Medium";
-		case "hard":
-			return "☢️ Hard";
+	function mapDifficultyToPrettyValue(difficulty: "easy" | "medium" | "hard") {
+		switch (difficulty) {
+			case "easy":
+				return "🧨 Easy";
+			case "medium":
+				return "💣 Medium";
+			case "hard":
+				return "☢️ Hard";
+		}
 	}
-}
 
-function mapCustomFieldIdToName(id: string) {
-	const customField = currentProject.customFields.find((el) => el.id === id);
+	function mapCustomFieldIdToName(id: string) {
+		const customField = currentProject.customFields.find((el) => el.id === id);
 
-	if (customField === undefined) return id;
+		if (customField === undefined) return id;
 
-	return customField.name;
-}
+		return customField.name;
+	}
 </script>
 
 {#if showInfoScreen}

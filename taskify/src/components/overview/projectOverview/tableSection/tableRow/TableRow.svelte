@@ -1,29 +1,29 @@
 <!-- This component wraps the components for one table row. -->
 
 <script lang="ts">
-import type { LocalProject, LocalProjectTask } from "@components/types";
-import CheckedBtn from "./CheckedBtn.svelte";
-import DeleteBtn from "./DeleteBtn.svelte";
-import DisplayCustomFieldsSection from "./customFieldsSelect/DisplayCustomFieldsSection.svelte";
-import DifficultySelect from "./predefinedFieldsSelect/DifficultySelect.svelte";
-import SizeSelect from "./predefinedFieldsSelect/SizeSelect.svelte";
+  import type { LocalProject, LocalProjectTask } from "@components/types";
+  import CheckedBtn from "./CheckedBtn.svelte";
+  import DeleteBtn from "./DeleteBtn.svelte";
+  import DisplayCustomFieldsSection from "./customFieldsSelect/DisplayCustomFieldsSection.svelte";
+  import DifficultySelect from "./predefinedFieldsSelect/DifficultySelect.svelte";
+  import SizeSelect from "./predefinedFieldsSelect/SizeSelect.svelte";
 
-// biome-ignore lint/style/useConst: These are props and work like this
-let {
-	task = $bindable(),
-	selectCurrentTask,
-	wantToEditTask,
-	toggleIsCheckedOnCurrentTask,
-	wantToDeleteTask,
-	currentProject,
-}: {
-	task: LocalProjectTask;
-	selectCurrentTask: (task: LocalProjectTask) => void;
-	wantToEditTask: () => void;
-	toggleIsCheckedOnCurrentTask: () => void;
-	wantToDeleteTask: () => void;
-	currentProject: LocalProject;
-} = $props();
+  // biome-ignore lint/style/useConst: These are props and work like this
+  let {
+    task = $bindable(),
+    selectCurrentTask,
+    wantToEditTask,
+    toggleIsCheckedOnCurrentTask,
+    wantToDeleteTask,
+    currentProject,
+  }: {
+    task: LocalProjectTask;
+    selectCurrentTask: (task: LocalProjectTask) => void;
+    wantToEditTask: () => void;
+    toggleIsCheckedOnCurrentTask: () => void;
+    wantToDeleteTask: () => void;
+    currentProject: LocalProject;
+  } = $props();
 </script>
 
 <tr

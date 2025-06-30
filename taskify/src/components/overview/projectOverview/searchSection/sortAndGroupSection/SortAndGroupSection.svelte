@@ -1,51 +1,53 @@
 <script lang="ts">
-import type {
-	LocalProject,
-	LocalProjectCustomField,
-	LocalProjectSortDirection,
-	PossibleSearchSubpopups,
-} from "@components/types";
-import Button from "@ui/Button.svelte";
-import Icon from "@ui/Icon.svelte";
-import { firstCapital } from "src/utils/stringUtils";
-import ListOfAllFields from "./ListOfAllFields.svelte";
+  import type {
+    LocalProject,
+    LocalProjectCustomField,
+    LocalProjectSortDirection,
+    PossibleSearchSubpopups,
+  } from "@components/types";
+  import Button from "@ui/Button.svelte";
+  import Icon from "@ui/Icon.svelte";
+  import { firstCapital } from "src/utils/stringUtils";
+  import ListOfAllFields from "./ListOfAllFields.svelte";
 
-// biome-ignore lint/style/useConst: These are props and work like this
-let {
-	subpopup = $bindable(),
-	sortedBy = $bindable(),
-	groupedBy = $bindable(),
-	sortDirection = $bindable(),
-	customFields,
-	currentProject,
-}: {
-	subpopup: PossibleSearchSubpopups;
-	sortedBy: string;
-	groupedBy: string | null;
-	customFields: Array<LocalProjectCustomField>;
-	sortDirection: LocalProjectSortDirection;
-	currentProject: LocalProject;
-} = $props();
+  // biome-ignore lint/style/useConst: These are props and work like this
+  let {
+    subpopup = $bindable(),
+    sortedBy = $bindable(),
+    groupedBy = $bindable(),
+    sortDirection = $bindable(),
+    customFields,
+    currentProject,
+  }: {
+    subpopup: PossibleSearchSubpopups;
+    sortedBy: string;
+    groupedBy: string | null;
+    customFields: Array<LocalProjectCustomField>;
+    sortDirection: LocalProjectSortDirection;
+    currentProject: LocalProject;
+  } = $props();
 
-function returnPrettyName(key: string) {
-	if (
-		[
-			"title",
-			"description",
-			"difficulty",
-			"size",
-			"done",
-			"relations",
-		].includes(key)
-	)
-		return `Sorted by ${firstCapital(key)}`;
+  function returnPrettyName(key: string) {
+    if (
+      [
+        "title",
+        "description",
+        "difficulty",
+        "size",
+        "done",
+        "relations",
+      ].includes(key)
+    )
+      return `Sorted by ${firstCapital(key)}`;
 
-	const possibleEntry = currentProject.customFields.find((el) => el.id === key);
+    const possibleEntry = currentProject.customFields.find(
+      (el) => el.id === key,
+    );
 
-	if (possibleEntry) return `Sorted by ${possibleEntry.name}`;
+    if (possibleEntry) return `Sorted by ${possibleEntry.name}`;
 
-	return "Sorted by custom field";
-}
+    return "Sorted by custom field";
+  }
 </script>
 
 <div class="flex gap-2">

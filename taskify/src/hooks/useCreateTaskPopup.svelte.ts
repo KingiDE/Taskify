@@ -10,7 +10,7 @@ import type {
 // Store the current tab for the CreateTaskPopup
 // biome-ignore lint/style/useConst: <explanation>
 export let currentTab = $state<{ value: PossibleEditTaskPopupTabs }>({
-	value: "appearence",
+	value: "appearance",
 });
 
 // Store the current input for creating tasks
