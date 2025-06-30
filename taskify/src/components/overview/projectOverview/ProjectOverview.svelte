@@ -88,6 +88,8 @@
 		{wantToDeleteTask}
 		bind:currentTask
 		bind:popup
+		moreSpaceForOtherElementRequired={countOfShownTasks !==
+			currentProject.tasks.length}
 	/>
 {/if}
 <AddTaskSection {wantToAddTask} />
