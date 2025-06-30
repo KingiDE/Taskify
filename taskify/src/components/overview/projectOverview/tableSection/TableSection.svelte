@@ -46,7 +46,7 @@
 	}
 </script>
 
-<div class="overflow-x-scroll pb-1 min-h-[400px]">
+<div class="overflow-x-scroll pb-1 pr-1.5 h-[calc(100%_-_216px)]">
 	<table
 		class={`pretty mt-2 w-full`}
 		style={`max-width: ${getMaxWithFromCountOfCustomFields()};`}

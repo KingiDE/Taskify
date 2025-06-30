@@ -13,7 +13,7 @@
 </script>
 
 <div
-  class={`h-8 flex overflow-hidden gap-4 items-start transition-[margin] ${isSidebarExpanded ? "" : "ml-1"}`}
+  class={`h-8 shrink-0 flex overflow-hidden gap-4 items-start transition-[margin] ${isSidebarExpanded ? "" : "ml-1"}`}
 >
   <Button
     onClick={toggleIsSidebarExpanded}

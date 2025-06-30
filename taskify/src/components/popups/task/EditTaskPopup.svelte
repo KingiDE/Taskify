@@ -34,7 +34,9 @@
 
 <div class="flex flex-col gap-4 w-full max-h-[700px] h-[calc(100dvh_-_48px)]">
   <h1 class="font-poppins font-bold text-2xl">Edit task</h1>
-  <div class="grid min-[700px]:grid-cols-[250px_auto] gap-8 overflow-y-hidden">
+  <div
+    class="grid min-[700px]:grid-cols-[250px_auto] gap-8 overflow-y-hidden h-full"
+  >
     <nav class="grid gap-2 content-start">
       <NavbarIcon
         buttonText="Appearance"

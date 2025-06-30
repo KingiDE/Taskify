@@ -49,7 +49,7 @@
 		popup = null;
 		selectProjectWithId(id);
 	}}
-	extraCSS={`${accentColorClass} transition-[background] h-10`}
+	extraCSS={`${accentColorClass} -outline-offset-1 transition-all h-10 ${isSidebarExpanded ? "" : "px-1"}`}
 >
 	{#snippet text()}
 		<div

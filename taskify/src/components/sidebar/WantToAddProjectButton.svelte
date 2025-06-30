@@ -18,7 +18,11 @@
   }
 </script>
 
-<Button meaning="neutral" onClick={showAddProjectPopup} extraCSS="mt-8 h-10">
+<Button
+  meaning="neutral"
+  onClick={showAddProjectPopup}
+  extraCSS="mt-8 h-10 shrink-0"
+>
   {#snippet icon()}
     <Icon
       extraCSS="flex-none"
