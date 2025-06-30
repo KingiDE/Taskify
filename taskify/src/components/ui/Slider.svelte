@@ -7,7 +7,7 @@
   }: {
     widthOfSingleElement: number;
     indexOfSelectedElement: number;
-    elements: (widthOfSingleElement: number) => any;
+    elements: () => any;
     extraCSS?: string;
   } = $props();
 </script>
@@ -19,5 +19,5 @@
     class="-z-10 absolute h-full bg-gray-500 rounded-md transition-[left]"
     style={`width: ${widthOfSingleElement}px; left: ${widthOfSingleElement * indexOfSelectedElement}px;`}
   ></div>
-  {@render elements(widthOfSingleElement)}
+  {@render elements()}
 </div>
