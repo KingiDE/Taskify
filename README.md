@@ -38,7 +38,7 @@ It might be useful to install extensions for the tools that are used in this pro
 Also, to correctly format on save, you can modify your Code editor's settings to use Biome as the default formatter for `.ts`, `.js` and `.svelte` files. 
 
 **Scripts:** <br/>
-There three two important scripts in the `package.json` file: `ts-check` checks for any TypeScript errors, `biome-check` lints the code, formats it (even without the extension installed) and points out possible errors. 
+There three important scripts in the `package.json` file: `ts-check` checks for any TypeScript errors, `biome-check` lints the code, formats it (even without the extension installed) and points out possible errors. 
 Additionally, you can run `svelte-check` to get notified about any Svelte errors.
 
 ## ❓️ Help
