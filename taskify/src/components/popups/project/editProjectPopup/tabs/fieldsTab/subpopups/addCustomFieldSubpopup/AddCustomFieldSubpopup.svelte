@@ -46,7 +46,7 @@
 <div
   class="mt-1 rounded-md grid gap-2"
   onkeydown={(e) => {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && document.activeElement?.tagName !== "TEXTAREA") {
       createCustomField();
     }
   }}

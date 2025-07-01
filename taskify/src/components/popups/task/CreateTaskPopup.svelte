@@ -48,7 +48,8 @@
 <div
   class="w-full flex flex-col gap-4 max-h-[700px] h-[calc(100dvh_-_48px)]"
   onkeydown={(e) => {
-    if (e.key === "Enter") {
+    console.log("A");
+    if (e.key === "Enter" && document.activeElement?.tagName !== "TEXTAREA") {
       createTask();
     }
   }}

@@ -80,8 +80,12 @@ export function mount() {
 				popup.value = null;
 			}
 
-			// If an input is focused, other hotkeys than the "close-hotkey" don't work
-			if (document.activeElement?.tagName === "INPUT") return;
+			// If an input or textarea are focused, other hotkeys than the "close-hotkey" don't work
+			if (
+				document.activeElement?.tagName === "INPUT" ||
+				document.activeElement?.tagName === "TEXTAREA"
+			)
+				return;
 
 			// Toggle sidebar expanded
 			if (e.key === "B") {
