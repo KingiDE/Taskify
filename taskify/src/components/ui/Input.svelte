@@ -1,5 +1,5 @@
 <!-- The foundational component for creating input-fields of any type (text and number). 
-The getter function returns the acutal value while the setter function updates the state. -->
+The getter function returns the actual value while the setter function updates the state. -->
 
 <script lang="ts">
 	let {
