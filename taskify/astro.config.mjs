@@ -11,9 +11,6 @@ export default defineConfig({
 	integrations: [
 		svelte(),
 		AstroPWA({
-			devOptions: {
-				enabled: false, // enable caching in dev-mode (run dev)
-			},
 			includeAssets: ["/icon.ico", "/manifest.json", "/fonts/*.ttf"],
 		}),
 	],
