@@ -14,14 +14,7 @@ export default defineConfig({
 			devOptions: {
 				enabled: false, // enable caching in dev-mode (run dev)
 			},
-			includeAssets: [
-				"/icon.ico",
-				"/manifest.json",
-				"/fonts/*.ttf",
-				"/icons/android/*.png",
-				"/icons/windows/*.png",
-				"/icons/ios/*.png",
-			],
+			includeAssets: ["/icon.ico", "/manifest.json", "/fonts/*.ttf"],
 		}),
 	],
 	vite: {
