@@ -17,8 +17,7 @@ export default defineConfig({
 			includeAssets: [
 				"/icon.ico",
 				"/manifest.json",
-				"/fonts/Poppins-Bold.ttf",
-				"/fonts/Inter.ttf",
+				"/fonts/*.ttf",
 				"/icons/android/*.png",
 				"/icons/windows/*.png",
 				"/icons/ios/*.png",
