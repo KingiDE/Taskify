@@ -1,5 +1,5 @@
 <!-- The foundational component for creating textarea-fields of any type (text and number). 
-The getter function returns the acutal value while the setter function updates the state.
+The getter function returns the actual value while the setter function updates the state.
 This component works similar to the Input-component.  -->
 
 <script lang="ts">
