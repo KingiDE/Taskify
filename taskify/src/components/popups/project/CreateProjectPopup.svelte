@@ -71,7 +71,7 @@
 <div
 	class="max-w-[575px] flex flex-col max-h-[700px] h-[calc(100dvh_-_48px)]"
 	onkeydown={(e) => {
-		if (e.key === "Enter") {
+		if (e.key === "Enter" && document.activeElement?.tagName !== "TEXTAREA") {
 			createProject();
 		}
 	}}
